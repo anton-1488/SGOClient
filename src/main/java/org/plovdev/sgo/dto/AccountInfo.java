@@ -1,0 +1,151 @@
+package org.plovdev.sgo.dto;
+
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.List;
+
+public class AccountInfo implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @SerializedName("activeToken")
+    private String activeToken;
+
+    @SerializedName("secureActiveToken")
+    private String secureActiveToken;
+
+    @SerializedName("currentOrganization")
+    private School currentOrganization;
+
+    @SerializedName("user")
+    private User user;
+
+    @SerializedName("userRoles")
+    private List<String> userRoles;
+
+    @SerializedName("organizations")
+    private List<School> organizations;
+
+    @SerializedName("loginTime")
+    private String loginTime;
+
+    @SerializedName("active")
+    private Boolean active;
+
+    @SerializedName("canLogin")
+    private Boolean canLogin;
+
+    @SerializedName("storeTokens")
+    private Boolean storeTokens;
+
+    @SerializedName("accessToken")
+    private String accessToken;
+
+
+    public AccountInfo(String activeToken, String secureActiveToken, School currentOrganization, User user, List<String> userRoles, List<School> organizations, String loginTime, Boolean active, Boolean canLogin, Boolean storeTokens, String accessToken) {
+        this.activeToken = activeToken;
+        this.secureActiveToken = secureActiveToken;
+        this.currentOrganization = currentOrganization;
+        this.user = user;
+        this.userRoles = userRoles;
+        this.organizations = organizations;
+        this.loginTime = loginTime;
+        this.active = active;
+        this.canLogin = canLogin;
+        this.storeTokens = storeTokens;
+        this.accessToken = accessToken;
+    }
+
+    public AccountInfo() {
+    }
+
+    public String getActiveToken() {
+        return activeToken;
+    }
+
+    public void setActiveToken(String activeToken) {
+        this.activeToken = activeToken;
+    }
+
+    public String getSecureActiveToken() {
+        return secureActiveToken;
+    }
+
+    public void setSecureActiveToken(String secureActiveToken) {
+        this.secureActiveToken = secureActiveToken;
+    }
+
+    public School getCurrentOrganization() {
+        return currentOrganization;
+    }
+
+    public void setCurrentOrganization(School currentOrganization) {
+        this.currentOrganization = currentOrganization;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<String> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(List<String> userRoles) {
+        this.userRoles = userRoles;
+    }
+
+    public List<School> getOrganizations() {
+        return organizations;
+    }
+
+    public void setOrganizations(List<School> organizations) {
+        this.organizations = organizations;
+    }
+
+    public String getLoginTime() {
+        return loginTime;
+    }
+
+    public void setLoginTime(String loginTime) {
+        this.loginTime = loginTime;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Boolean getCanLogin() {
+        return canLogin;
+    }
+
+    public void setCanLogin(Boolean canLogin) {
+        this.canLogin = canLogin;
+    }
+
+    public Boolean getStoreTokens() {
+        return storeTokens;
+    }
+
+    public void setStoreTokens(Boolean storeTokens) {
+        this.storeTokens = storeTokens;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+}
