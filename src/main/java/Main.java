@@ -6,7 +6,7 @@ import org.plovdev.sgo.security.AuthKeys;
 
 public class Main {
     public static void main(String[] args) {
-        try (SGOClient client = new SGOClient(new AuthKeys("ПавловАА157", "1431190s"))) {
+        try (SGOClient client = new SGOClient(new AuthKeys("ХуйВамАНеПароль", "1488"))) {
             SGOSession session = client.createSession(School.MAOU6, ClientRole.STUDENT);
         } catch (Exception e) {
             throw new RuntimeException(e);
