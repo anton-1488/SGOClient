@@ -64,7 +64,7 @@ public class SGOClient implements AutoCloseable {
         this.authKeys = authKeys;
     }
 
-    public SGOSession createSession(School school) throws Exception {
+    public SGOSession createSession(School school, ClientRole role) throws Exception {
         if (authKeys == null) {
             throw new IllegalArgumentException("Auth keys can't be null!");
         }
@@ -78,6 +78,12 @@ public class SGOClient implements AutoCloseable {
         SGOSession sgoSession = new SGOSession(cookieHeader, loginData, null);
 
         SGOLoginRequest sgoLoginRequest = new SGOLoginRequest(authKeys.username(), HashUtils.createPassword(loginData.getSalt(), authKeys.password()), loginData.getLt(), loginData.getVer(), school);
+        if (role == ClientRole.TEACHER) {
+            sgoLoginRequest.setLoginType(2);
+        } else {
+            sgoLoginRequest.setLoginType(1);
+        }
+
         HttpRequest loginRequest = buildRequest(sgoLoginRequest);
 
         HttpResponse<String> loginResponse = httpClient.send(loginRequest, HttpResponse.BodyHandlers.ofString());
