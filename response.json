@@ -1,1342 +1,753 @@
-{
-    "weekStart": "2026-01-16T00:00:00",
-    "weekEnd": "2026-01-23T00:00:00",
-    "weekDays": [
-        {
-            "date": "2026-01-19T00:00:00",
-            "lessons": [
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048934,
-                    "day": "2026-01-19T00:00:00",
-                    "number": 1,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:00",
-                    "endTime": "08:40",
-                    "subjectName": "Физическая культура"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223222741,
-                            "typeId": 3,
-                            "assignmentName": "п. 12 № 380, 388, 384",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045982,
-                            "issueClassMeetingId": 166046151
-                        },
-                        {
-                            "id": 223222809,
-                            "typeId": 10,
-                            "assignmentName": "Квадратные корни. Арифметический квадратный корень",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045982,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223222809
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166045982,
-                    "day": "2026-01-19T00:00:00",
-                    "number": 2,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:50",
-                    "endTime": "09:30",
-                    "subjectName": "Математика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223531901,
-                            "typeId": 3,
-                            "assignmentName": "Общая характеристика моллюсков. Практическая работа «Исследование внешнего строения раковин пресноводных и морских моллюсков (раковины беззубки, перловицы, прудовика, катушки и др.)»",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166043597,
-                            "issueClassMeetingId": 166043630
-                        },
-                        {
-                            "id": 223531928,
-                            "typeId": 10,
-                            "assignmentName": "Многообразие моллюсков. Значение моллюсков в природе и жизни человека",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166043597
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166043597,
-                    "day": "2026-01-19T00:00:00",
-                    "number": 3,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "09:40",
-                    "endTime": "10:20",
-                    "subjectName": "Биология"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 222881022,
-                            "typeId": 3,
-                            "assignmentName": "1) Выучить с. 73-81;  2) разобрать все примеры, доделать в тетради задание; 3) повторить теорию с. 46-61.",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045400,
-                            "issueClassMeetingId": 166045399
-                        },
-                        {
-                            "id": 223547533,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045400,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 4,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223547533
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166045400,
-                    "day": "2026-01-19T00:00:00",
-                    "number": 4,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "10:30",
-                    "endTime": "11:10",
-                    "subjectName": "Информатика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223106533,
-                            "typeId": 3,
-                            "assignmentName": "Пар.31 выучить определение упр.176",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048156,
-                            "issueClassMeetingId": 166048262
-                        },
-                        {
-                            "id": 223537456,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048156,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223537456
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048156,
-                    "day": "2026-01-19T00:00:00",
-                    "number": 5,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "11:20",
-                    "endTime": "12:00",
-                    "subjectName": "Русский язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223536632,
-                            "typeId": 3,
-                            "assignmentName": "Обстоятельство как второстепенный член предложения. Практикум",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048191,
-                            "issueClassMeetingId": 166048262
-                        },
-                        {
-                            "id": 223537455,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048191
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048191,
-                    "day": "2026-01-19T00:00:00",
-                    "number": 6,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "12:10",
-                    "endTime": "12:50",
-                    "subjectName": "Русский язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 222884070,
-                            "typeId": 3,
-                            "assignmentName": "§24, упр. 3, 5, 7",
-                            "weight": 10,
-                            "dueDate": "2026-01-19T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166468025,
-                            "issueClassMeetingId": 166468092
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166468025,
-                    "day": "2026-01-19T00:00:00",
-                    "number": 7,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "13:00",
-                    "endTime": "13:40",
-                    "subjectName": "Химия"
-                }
-            ]
+[
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
         },
-        {
-            "date": "2026-01-21T00:00:00",
-            "lessons": [
-                {
-                    "assignments": [
-                        {
-                            "id": 223770713,
-                            "typeId": 3,
-                            "assignmentName": "Многообразие моллюсков. Значение моллюсков в природе и жизни человека",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166043631,
-                            "issueClassMeetingId": 166043597
-                        },
-                        {
-                            "id": 223770721,
-                            "typeId": 10,
-                            "assignmentName": "Общая характеристика хордовых животных",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166043631,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223770721
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166043631,
-                    "day": "2026-01-21T00:00:00",
-                    "number": 1,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:00",
-                    "endTime": "08:40",
-                    "subjectName": "Биология"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223879751,
-                            "typeId": 3,
-                            "assignmentName": "п.24",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044469,
-                            "issueClassMeetingId": 166044502
-                        },
-                        {
-                            "id": 223879907,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044469,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223879907
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044469,
-                    "day": "2026-01-21T00:00:00",
-                    "number": 2,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:50",
-                    "endTime": "09:30",
-                    "subjectName": "География"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223784910,
-                            "typeId": 3,
-                            "assignmentName": "Пар.32 выучить теорию, таблица в тетради.  Повторить деепричастный и причастный оборот",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048225,
-                            "issueClassMeetingId": 166048191
-                        },
-                        {
-                            "id": 223793587,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048225
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048225,
-                    "day": "2026-01-21T00:00:00",
-                    "number": 3,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "09:40",
-                    "endTime": "10:20",
-                    "subjectName": "Русский язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223796200,
-                            "typeId": 3,
-                            "assignmentName": "Учить конспект",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166047066,
-                            "issueClassMeetingId": 166047065
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166047066,
-                    "day": "2026-01-21T00:00:00",
-                    "number": 4,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "10:30",
-                    "endTime": "11:10",
-                    "subjectName": "Основы безопасности и защиты Родины"
-                },
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046433,
-                    "day": "2026-01-21T00:00:00",
-                    "number": 5,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "11:20",
-                    "endTime": "12:00",
-                    "subjectName": "Музыка"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223663458,
-                            "typeId": 3,
-                            "assignmentName": "задание в тетради",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046050,
-                            "issueClassMeetingId": 166046016
-                        },
-                        {
-                            "id": 223663505,
-                            "typeId": 10,
-                            "assignmentName": "Опыты с равновозможными элементарными событиями. Случайный выбор",
-                            "weight": 10,
-                            "dueDate": "2026-01-21T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046050
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046050,
-                    "day": "2026-01-21T00:00:00",
-                    "number": 6,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "12:10",
-                    "endTime": "12:50",
-                    "subjectName": "Математика"
-                }
-            ]
+        "shortName": "Итог. собесед",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88773,
+                "name": "Вихлянова Анна Сергеевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Итог. собесед",
+            "globalSubjectId": 5716,
+            "id": 162821,
+            "name": "Подготовка к итоговому собеседованию по русскому языку"
         },
-        {
-            "date": "2026-01-20T00:00:00",
-            "lessons": [
-                {
-                    "assignments": [
-                        {
-                            "id": 223529264,
-                            "typeId": 3,
-                            "assignmentName": "п. 61 № 551(б)",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046016,
-                            "issueClassMeetingId": 166045982
-                        },
-                        {
-                            "id": 223529355,
-                            "typeId": 10,
-                            "assignmentName": "Второй признак подобия треугольников",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046016
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046016,
-                    "day": "2026-01-20T00:00:00",
-                    "number": 1,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:00",
-                    "endTime": "08:40",
-                    "subjectName": "Математика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223378891,
-                            "typeId": 3,
-                            "assignmentName": "п. 34, 35, 36",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048720,
-                            "issueClassMeetingId": 166048753
-                        },
-                        {
-                            "id": 223662978,
-                            "typeId": 10,
-                            "assignmentName": "Сила тока. Единицы силы тока.",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048720,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223662978
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048720,
-                    "day": "2026-01-20T00:00:00",
-                    "number": 2,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:50",
-                    "endTime": "09:30",
-                    "subjectName": "Физика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223578077,
-                            "typeId": 3,
-                            "assignmentName": "Ф. М. Достоевский. «Бедные люди», «Белые ночи» (одно произведение по выбору). Система образов.",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045715,
-                            "issueClassMeetingId": 166045782
-                        },
-                        {
-                            "id": 223676579,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045715
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166045715,
-                    "day": "2026-01-20T00:00:00",
-                    "number": 3,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "09:40",
-                    "endTime": "10:20",
-                    "subjectName": "Литература"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223684612,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044825,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 3,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223684612
-                            }
-                        },
-                        {
-                            "id": 223633481,
-                            "typeId": 3,
-                            "assignmentName": "стр. 14 упр. 11",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044825,
-                            "issueClassMeetingId": 166044892
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044825,
-                    "day": "2026-01-20T00:00:00",
-                    "number": 4,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "10:30",
-                    "endTime": "11:10",
-                    "subjectName": "Иностранный язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223689634,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044050
-                        },
-                        {
-                            "id": 223874237,
-                            "typeId": 3,
-                            "assignmentName": "П8",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044050,
-                            "issueClassMeetingId": 166044083
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044050,
-                    "day": "2026-01-20T00:00:00",
-                    "number": 5,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "11:20",
-                    "endTime": "12:00",
-                    "subjectName": "История"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 222884099,
-                            "typeId": 3,
-                            "assignmentName": "Инд.зад.",
-                            "weight": 10,
-                            "dueDate": "2026-01-20T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166468093,
-                            "issueClassMeetingId": 166468025,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 222884099
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166468093,
-                    "day": "2026-01-20T00:00:00",
-                    "number": 6,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "12:10",
-                    "endTime": "12:50",
-                    "subjectName": "Химия"
-                },
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166047625,
-                    "day": "2026-01-20T00:00:00",
-                    "number": 7,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "13:00",
-                    "endTime": "13:40",
-                    "subjectName": "Подготовка к итоговому собеседованию по русскому языку"
-                }
-            ]
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "NotRated",
+        "useExemption": false,
+        "fullName": "8а/Подготовка к итоговому собеседованию по русскому языку",
+        "id": 4230542,
+        "name": "Подготовка к итоговому собеседованию по русскому языку"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
         },
-        {
-            "date": "2026-01-22T00:00:00",
-            "lessons": [
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048405,
-                    "day": "2026-01-22T00:00:00",
-                    "number": 1,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:00",
-                    "endTime": "08:40",
-                    "subjectName": "Труд (технология)"
-                },
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048968,
-                    "day": "2026-01-22T00:00:00",
-                    "number": 2,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:50",
-                    "endTime": "09:30",
-                    "subjectName": "Физическая культура"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223663587,
-                            "typeId": 3,
-                            "assignmentName": "п. 12 № 390, 394",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046084,
-                            "issueClassMeetingId": 166046050
-                        },
-                        {
-                            "id": 223663631,
-                            "typeId": 10,
-                            "assignmentName": "Вычисление значений иррациональных выражений",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046084
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046084,
-                    "day": "2026-01-22T00:00:00",
-                    "number": 3,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "09:40",
-                    "endTime": "10:20",
-                    "subjectName": "Математика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223663729,
-                            "typeId": 3,
-                            "assignmentName": "нет задания",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046118,
-                            "issueClassMeetingId": 166046050
-                        },
-                        {
-                            "id": 223663814,
-                            "typeId": 10,
-                            "assignmentName": "Множество и его элементы",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046118
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046118,
-                    "day": "2026-01-22T00:00:00",
-                    "number": 4,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "10:30",
-                    "endTime": "11:10",
-                    "subjectName": "Математика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223872016,
-                            "typeId": 3,
-                            "assignmentName": "упр. 3, правило стр. 16",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044859,
-                            "issueClassMeetingId": 166044825
-                        },
-                        {
-                            "id": 223924137,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044859,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223924137
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044859,
-                    "day": "2026-01-22T00:00:00",
-                    "number": 5,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "11:20",
-                    "endTime": "12:00",
-                    "subjectName": "Иностранный язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223874218,
-                            "typeId": 3,
-                            "assignmentName": "П9",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044084,
-                            "issueClassMeetingId": 166044050
-                        },
-                        {
-                            "id": 223888113,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-22T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044084
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044084,
-                    "day": "2026-01-22T00:00:00",
-                    "number": 6,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "12:10",
-                    "endTime": "12:50",
-                    "subjectName": "История"
-                },
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166049071,
-                    "day": "2026-01-22T00:00:00",
-                    "number": 7,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "13:00",
-                    "endTime": "13:40",
-                    "subjectName": "Функциональная грамотность: учимся для жизни"
-                }
-            ]
+        "shortName": "Биол",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88777,
+                "name": "Головачева Мария Амирановна"
+            }
+        ],
+        "subject": {
+            "shortName": "Биол",
+            "globalSubjectId": 3,
+            "id": 162819,
+            "name": "Практическая биология"
         },
-        {
-            "date": "2026-01-16T00:00:00",
-            "lessons": [
-                {
-                    "assignments": [
-                        {
-                            "id": 223407142,
-                            "typeId": 3,
-                            "assignmentName": "п.23",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044502,
-                            "issueClassMeetingId": 166044468
-                        },
-                        {
-                            "id": 223407192,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044502
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044502,
-                    "day": "2026-01-16T00:00:00",
-                    "number": 1,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:00",
-                    "endTime": "08:40",
-                    "subjectName": "География"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223357176,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046703
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046703,
-                    "day": "2026-01-16T00:00:00",
-                    "number": 2,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:50",
-                    "endTime": "09:30",
-                    "subjectName": "Обществознание"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223308570,
-                            "typeId": 3,
-                            "assignmentName": "стр. 9 учить правило",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044892,
-                            "issueClassMeetingId": 166044858
-                        },
-                        {
-                            "id": 223344433,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044892
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044892,
-                    "day": "2026-01-16T00:00:00",
-                    "number": 3,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "09:40",
-                    "endTime": "10:20",
-                    "subjectName": "Иностранный язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223363691,
-                            "typeId": 3,
-                            "assignmentName": "Ф. М. Достоевский. «Бедные люди», «Белые ночи» (одно произведение по выбору). Тема, идея, проблематика",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045782,
-                            "issueClassMeetingId": 166045714
-                        },
-                        {
-                            "id": 223364186,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045782
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166045782,
-                    "day": "2026-01-16T00:00:00",
-                    "number": 4,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "10:30",
-                    "endTime": "11:10",
-                    "subjectName": "Литература"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223106508,
-                            "typeId": 3,
-                            "assignmentName": "Обстоятельство как второстепенный член предложения. Виды обстоятельств",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048262,
-                            "issueClassMeetingId": 166048224
-                        },
-                        {
-                            "id": 223112114,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048262,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 223112114
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048262,
-                    "day": "2026-01-16T00:00:00",
-                    "number": 5,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "11:20",
-                    "endTime": "12:00",
-                    "subjectName": "Русский язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223222587,
-                            "typeId": 3,
-                            "assignmentName": "п. 61 № 550(2)",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046151,
-                            "issueClassMeetingId": 166046117
-                        },
-                        {
-                            "id": 223222659,
-                            "typeId": 10,
-                            "assignmentName": "Первый признак подобия треугольников",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046151
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046151,
-                    "day": "2026-01-16T00:00:00",
-                    "number": 6,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "12:10",
-                    "endTime": "12:50",
-                    "subjectName": "Математика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223378874,
-                            "typeId": 10,
-                            "assignmentName": "Электрический ток в металлах. Действия электрического тока. Направление тока",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048753
-                        },
-                        {
-                            "id": 222964196,
-                            "typeId": 3,
-                            "assignmentName": "п. 33 упр.23",
-                            "weight": 10,
-                            "dueDate": "2026-01-16T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048753,
-                            "issueClassMeetingId": 166048719
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048753,
-                    "day": "2026-01-16T00:00:00",
-                    "number": 7,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "13:00",
-                    "endTime": "13:40",
-                    "subjectName": "Физика"
-                }
-            ]
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "NotRated",
+        "useExemption": false,
+        "fullName": "8а/Практическая биология",
+        "id": 4230540,
+        "name": "Практическая биология"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
         },
-        {
-            "date": "2026-01-23T00:00:00",
-            "lessons": [
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044503,
-                    "day": "2026-01-23T00:00:00",
-                    "number": 1,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:00",
-                    "endTime": "08:40",
-                    "subjectName": "География"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 224030354,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046704
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046704,
-                    "day": "2026-01-23T00:00:00",
-                    "number": 2,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:50",
-                    "endTime": "09:30",
-                    "subjectName": "Обществознание"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223988354,
-                            "typeId": 3,
-                            "assignmentName": "упр. 10, 11 стр. 18",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044893,
-                            "issueClassMeetingId": 166044859
-                        },
-                        {
-                            "id": 224019467,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166044893
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166044893,
-                    "day": "2026-01-23T00:00:00",
-                    "number": 3,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "09:40",
-                    "endTime": "10:20",
-                    "subjectName": "Иностранный язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 224075778,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045783,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 224075778
-                            }
-                        },
-                        {
-                            "id": 224042845,
-                            "typeId": 3,
-                            "assignmentName": "Выписать в тетрадь стр.24 ( после произведения).Письменно ответить на вопросы 1-2 стр. 24 (от 10 предложений)",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166045783,
-                            "issueClassMeetingId": 166045715
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166045783,
-                    "day": "2026-01-23T00:00:00",
-                    "number": 4,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "10:30",
-                    "endTime": "11:10",
-                    "subjectName": "Литература"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223784947,
-                            "typeId": 3,
-                            "assignmentName": "Контрольная работа по темам \"Словосочетание\", \"Двусоставное предложение\", \"Второстепенные члены предложения\"",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048263,
-                            "issueClassMeetingId": 166048225
-                        },
-                        {
-                            "id": 224044521,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048263
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048263,
-                    "day": "2026-01-23T00:00:00",
-                    "number": 5,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "11:20",
-                    "endTime": "12:00",
-                    "subjectName": "Русский язык"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 224075032,
-                            "typeId": 3,
-                            "assignmentName": "п. 62 задание в тетради",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046152,
-                            "issueClassMeetingId": 166046118
-                        },
-                        {
-                            "id": 224075085,
-                            "typeId": 10,
-                            "assignmentName": "Второй признак подобия треугольников",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166046152
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166046152,
-                    "day": "2026-01-23T00:00:00",
-                    "number": 6,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "12:10",
-                    "endTime": "12:50",
-                    "subjectName": "Математика"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223662989,
-                            "typeId": 3,
-                            "assignmentName": "п. 37 упр. 23",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048754,
-                            "issueClassMeetingId": 166048720
-                        },
-                        {
-                            "id": 224075385,
-                            "typeId": 6,
-                            "assignmentName": "Амперметр. ТБ. Лабораторная работа №5 \" Сборка электрической цепи и измерение силы тока в её различных участках\"",
-                            "weight": 10,
-                            "dueDate": "2026-01-23T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 166048754,
-                            "mark": {
-                                "id": 0,
-                                "studentId": 1870886,
-                                "mark": 5,
-                                "resultScore": null,
-                                "dutyMark": false,
-                                "assignmentId": 224075385
-                            }
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 166048754,
-                    "day": "2026-01-23T00:00:00",
-                    "number": 7,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "13:00",
-                    "endTime": "13:40",
-                    "subjectName": "Физика"
-                }
-            ]
+        "shortName": "Функц. грам",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 1750058,
+                "name": "Карташова Людмила Юрьевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Функц. грам",
+            "globalSubjectId": 4506,
+            "id": 162820,
+            "name": "Функциональная грамотность: учимся для жизни"
         },
-        {
-            "date": "2026-01-17T00:00:00",
-            "lessons": [
-                {
-                    "assignments": [],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 175829420,
-                    "day": "2026-01-17T00:00:00",
-                    "number": 2,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "08:50",
-                    "endTime": "09:30",
-                    "subjectName": "Практическая биология"
-                },
-                {
-                    "assignments": [
-                        {
-                            "id": 223806410,
-                            "typeId": 10,
-                            "assignmentName": "---Не указана---",
-                            "weight": 10,
-                            "dueDate": "2026-01-17T00:00:00",
-                            "classAssignment": true,
-                            "classMeetingId": 175830065
-                        }
-                    ],
-                    "isDistanceLesson": false,
-                    "isEaLesson": false,
-                    "classmeetingId": 175830065,
-                    "day": "2026-01-17T00:00:00",
-                    "number": 3,
-                    "relay": 1,
-                    "room": "",
-                    "startTime": "09:40",
-                    "endTime": "10:20",
-                    "subjectName": "Биологический эксперимент и практическая биология"
-                }
-            ]
-        }
-    ],
-    "laAssigns": [],
-    "termName": "3 четверть",
-    "className": "8а"
-}
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "NotRated",
+        "useExemption": false,
+        "fullName": "8а/Функциональная грамотность: учимся для жизни",
+        "id": 4230541,
+        "name": "Функциональная грамотность: учимся для жизни"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Труд/Труд (девоч)",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88770,
+                "name": "Щербинина Тамара Николаевна"
+            }
+        ],
+        "group": {
+            "id": 88270,
+            "name": "Труд (девоч)"
+        },
+        "subject": {
+            "shortName": "Труд",
+            "globalSubjectId": 26,
+            "id": 158393,
+            "name": "Труд (технология)"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Труд (технология)/Труд (девоч)",
+        "id": 4174840,
+        "name": "Труд (технология)/Труд (девоч)"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Труд/Труд (мальчики)",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 141035,
+                "name": "Худяков Дмитрий Сергеевич"
+            }
+        ],
+        "group": {
+            "id": 88269,
+            "name": "Труд (мальчики)"
+        },
+        "subject": {
+            "shortName": "Труд",
+            "globalSubjectId": 26,
+            "id": 158393,
+            "name": "Труд (технология)"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Труд (технология)/Труд (мальчики)",
+        "id": 4230337,
+        "name": "Труд (технология)/Труд (мальчики)"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Ин.яз/Англ.яз",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 113494,
+                "name": "Чекунова Елена Андреевна"
+            }
+        ],
+        "group": {
+            "id": 88201,
+            "name": "Англ.яз"
+        },
+        "subject": {
+            "shortName": "Ин.яз",
+            "globalSubjectId": 10,
+            "id": 158394,
+            "name": "Иностранный язык"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Иностранный язык/Англ.яз",
+        "id": 4229532,
+        "name": "Иностранный язык/Англ.яз"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Ин.яз/Нем.яз.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88783,
+                "name": "Попова Татьяна Валентиновна"
+            }
+        ],
+        "group": {
+            "id": 88202,
+            "name": "Нем.яз."
+        },
+        "subject": {
+            "shortName": "Ин.яз",
+            "globalSubjectId": 10,
+            "id": 158394,
+            "name": "Иностранный язык"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Иностранный язык/Нем.яз.",
+        "id": 4174841,
+        "name": "Иностранный язык/Нем.яз."
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Основы безопасности и защиты Родины",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 141035,
+                "name": "Худяков Дмитрий Сергеевич"
+            }
+        ],
+        "subject": {
+            "shortName": "Основы безопасности и защиты Родины",
+            "globalSubjectId": 20,
+            "id": 158406,
+            "name": "Основы безопасности и защиты Родины"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Основы безопасности и защиты Родины",
+        "id": 4174843,
+        "name": "Основы безопасности и защиты Родины"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Инф.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 1750058,
+                "name": "Карташова Людмила Юрьевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Инф.",
+            "globalSubjectId": 11,
+            "id": 23623,
+            "name": "Информатика"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Информатика",
+        "id": 4174834,
+        "name": "Информатика"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Матем.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88775,
+                "name": "Куроплина Елена Анатольевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Матем.",
+            "globalSubjectId": 16,
+            "id": 23624,
+            "name": "Математика"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Математика",
+        "id": 4242960,
+        "name": "Математика"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Биол.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88777,
+                "name": "Головачева Мария Амирановна"
+            }
+        ],
+        "subject": {
+            "shortName": "Биол.",
+            "globalSubjectId": 3,
+            "id": 23612,
+            "name": "Биология"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Биология",
+        "id": 4174829,
+        "name": "Биология"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Геогр.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88772,
+                "name": "Хвостов Владимир Викторович"
+            }
+        ],
+        "subject": {
+            "shortName": "Геогр.",
+            "globalSubjectId": 6,
+            "id": 23613,
+            "name": "География"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/География",
+        "id": 4174830,
+        "name": "География"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Физ.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88775,
+                "name": "Куроплина Елена Анатольевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Физ.",
+            "globalSubjectId": 27,
+            "id": 23616,
+            "name": "Физика"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Физика",
+        "id": 4174831,
+        "name": "Физика"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Хим.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88769,
+                "name": "Рябинина Наталья Сергеевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Хим.",
+            "globalSubjectId": 29,
+            "id": 23617,
+            "name": "Химия"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Химия",
+        "id": 4174832,
+        "name": "Химия"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Ист.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88806,
+                "name": "Просвирова Вера Николаевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Ист.",
+            "globalSubjectId": 12,
+            "id": 23625,
+            "name": "История"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/История",
+        "id": 4229414,
+        "name": "История"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Общ.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88806,
+                "name": "Просвирова Вера Николаевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Общ.",
+            "globalSubjectId": 18,
+            "id": 23626,
+            "name": "Обществознание"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Обществознание",
+        "id": 4174836,
+        "name": "Обществознание"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Муз.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 1733939,
+                "name": "Маркина Надежда Петровна"
+            }
+        ],
+        "subject": {
+            "shortName": "Муз.",
+            "globalSubjectId": 17,
+            "id": 23619,
+            "name": "Музыка"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Музыка",
+        "id": 4174833,
+        "name": "Музыка"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Физ-ра",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88794,
+                "name": "Анисимова Ольга Николаевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Физ-ра",
+            "globalSubjectId": 28,
+            "id": 23630,
+            "name": "Физическая культура"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Физическая культура",
+        "id": 4174837,
+        "name": "Физическая культура"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Рус.яз.",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88773,
+                "name": "Вихлянова Анна Сергеевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Рус.яз.",
+            "globalSubjectId": 25,
+            "id": 23634,
+            "name": "Русский язык"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Русский язык",
+        "id": 4234969,
+        "name": "Русский язык"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Лит-ра",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88773,
+                "name": "Вихлянова Анна Сергеевна"
+            }
+        ],
+        "subject": {
+            "shortName": "Лит-ра",
+            "globalSubjectId": 13,
+            "id": 23632,
+            "name": "Литература"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "Mark",
+        "useExemption": false,
+        "fullName": "8а/Литература",
+        "id": 4174838,
+        "name": "Литература"
+    },
+    {
+        "class": {
+            "grade": 8,
+            "letter": null,
+            "funcType": "School",
+            "id": 458655,
+            "name": "8а"
+        },
+        "shortName": "Биологичес",
+        "terms": [
+            145279,
+            145280,
+            145281,
+            145282
+        ],
+        "teachers": [
+            {
+                "id": 88777,
+                "name": "Головачева Мария Амирановна"
+            }
+        ],
+        "subject": {
+            "shortName": "Биологичес",
+            "globalSubjectId": 3,
+            "id": 23940,
+            "name": "Биологический эксперимент и практическая биология"
+        },
+        "iup": false,
+        "extraCurricular": false,
+        "gradingSys": "NotRated",
+        "useExemption": false,
+        "fullName": "8а/Биологический эксперимент и практическая биология",
+        "id": 4229439,
+        "name": "Биологический эксперимент и практическая биология"
+    }
+]

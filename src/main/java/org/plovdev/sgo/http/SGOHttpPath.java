@@ -10,4 +10,5 @@ public interface SGOHttpPath {
     String DIARY = "student/diary";
     String CONTEXT = "context";
     String USER_SETTINGS = "usersettings";
+    String SCHEDULE = "subjectgroups";
 }
