@@ -38,9 +38,4 @@ public class GetSGOLoginData extends SGORequest<SGOLoginData> {
     public Type responseType() {
         return new TypeToken<SGOLoginData>(){}.getType();
     }
-
-    @Override
-    public SGOLoginData parse(String body) {
-        return null;
-    }
 }

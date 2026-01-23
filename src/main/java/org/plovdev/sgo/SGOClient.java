@@ -3,14 +3,13 @@ package org.plovdev.sgo;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import org.plovdev.sgo.dto.SGOContext;
 import org.plovdev.sgo.dto.SGOLogin;
 import org.plovdev.sgo.dto.SGOLoginData;
 import org.plovdev.sgo.dto.School;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
-import org.plovdev.sgo.http.requests.GetSGOLoginData;
-import org.plovdev.sgo.http.requests.SGOLoginRequest;
-import org.plovdev.sgo.http.requests.SGORequest;
+import org.plovdev.sgo.http.requests.*;
 import org.plovdev.sgo.security.AuthKeys;
 import org.plovdev.sgo.security.HashUtils;
 import org.plovdev.sgo.utils.SGOResponseParser;
@@ -52,9 +51,7 @@ public class SGOClient implements AutoCloseable {
         authKeys = keys;
     }
 
-    public SGOClient() {
-
-    }
+    public SGOClient() {}
 
     public AuthKeys getAuthKeys() {
         return authKeys;
@@ -75,7 +72,7 @@ public class SGOClient implements AutoCloseable {
         makeInitialRequest(school);
         String cookieHeader = getCookieHeader();
         SGOLoginData loginData = getLoginData();
-        SGOSession sgoSession = new SGOSession(cookieHeader, loginData, null);
+        SGOSession sgoSession = new SGOSession(cookieHeader, loginData, new SGOLogin(), new SGOContext());
 
         SGOLoginRequest sgoLoginRequest = new SGOLoginRequest(authKeys.username(), HashUtils.createPassword(loginData.getSalt(), authKeys.password()), loginData.getLt(), loginData.getVer(), school);
         if (role == ClientRole.TEACHER) {
@@ -93,10 +90,15 @@ public class SGOClient implements AutoCloseable {
 
         SGOLogin loginResult = SGOResponseParser.parseLoginResponse(loginResponse.body());
         sgoSession.setSgoLogin(loginResult);
-        currentSession = sgoSession;
-
         refresher.setSession(sgoSession);
         refresher.startRefreshLoop();
+
+        currentSession = sgoSession;
+
+        SGOContext sgoContext = execute(new GetSGOContext());
+        sgoSession.setSgoContext(sgoContext);
+
+        currentSession = sgoSession;
 
         return sgoSession;
     }

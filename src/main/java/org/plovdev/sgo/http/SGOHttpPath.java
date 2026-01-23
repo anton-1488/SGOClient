@@ -8,4 +8,6 @@ public interface SGOHttpPath {
     String STATE = "context/state";
     String EXPIRED = "context/expired";
     String DIARY = "student/diary";
+    String CONTEXT = "context";
+    String USER_SETTINGS = "usersettings";
 }

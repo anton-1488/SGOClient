@@ -9,7 +9,7 @@ public class School implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public static School MAOU6 = new School("МАОУ \"СШ №6\"", 130);
+    public static final School MAOU6 = new School("МАОУ \"СШ №6\"", 130);
 
     @SerializedName("name")
     private String schoolName;
@@ -39,14 +39,6 @@ public class School implements Serializable {
 
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
-    }
-
-    public static School getMAOU6() {
-        return MAOU6;
-    }
-
-    public static void setMAOU6(School MAOU6) {
-        School.MAOU6 = MAOU6;
     }
 
     @Override

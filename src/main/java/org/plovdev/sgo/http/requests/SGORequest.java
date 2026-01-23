@@ -12,5 +12,4 @@ public abstract class SGORequest<T> {
     public abstract String contentType();
     public abstract Map<String, String> headers();
     public abstract Type responseType();
-    public abstract T parse(String body);
 }

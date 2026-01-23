@@ -6,7 +6,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-public class AccountInfo implements Serializable {
+public class SGOAccountInfo implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -20,7 +20,7 @@ public class AccountInfo implements Serializable {
     private School currentOrganization;
 
     @SerializedName("user")
-    private User user;
+    private SGOUser SGOUser;
 
     @SerializedName("userRoles")
     private List<String> userRoles;
@@ -44,11 +44,11 @@ public class AccountInfo implements Serializable {
     private String accessToken;
 
 
-    public AccountInfo(String activeToken, String secureActiveToken, School currentOrganization, User user, List<String> userRoles, List<School> organizations, String loginTime, Boolean active, Boolean canLogin, Boolean storeTokens, String accessToken) {
+    public SGOAccountInfo(String activeToken, String secureActiveToken, School currentOrganization, SGOUser SGOUser, List<String> userRoles, List<School> organizations, String loginTime, Boolean active, Boolean canLogin, Boolean storeTokens, String accessToken) {
         this.activeToken = activeToken;
         this.secureActiveToken = secureActiveToken;
         this.currentOrganization = currentOrganization;
-        this.user = user;
+        this.SGOUser = SGOUser;
         this.userRoles = userRoles;
         this.organizations = organizations;
         this.loginTime = loginTime;
@@ -58,7 +58,7 @@ public class AccountInfo implements Serializable {
         this.accessToken = accessToken;
     }
 
-    public AccountInfo() {
+    public SGOAccountInfo() {
     }
 
     public String getActiveToken() {
@@ -85,12 +85,12 @@ public class AccountInfo implements Serializable {
         this.currentOrganization = currentOrganization;
     }
 
-    public User getUser() {
-        return user;
+    public SGOUser getUser() {
+        return SGOUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(SGOUser SGOUser) {
+        this.SGOUser = SGOUser;
     }
 
     public List<String> getUserRoles() {

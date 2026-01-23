@@ -135,9 +135,4 @@ public class SGOLoginRequest extends SGORequest<SGOLogin> {
     public Type responseType() {
         return new TypeToken<SGOLogin>(){}.getType();
     }
-
-    @Override
-    public SGOLogin parse(String body) {
-        return null;
-    }
 }

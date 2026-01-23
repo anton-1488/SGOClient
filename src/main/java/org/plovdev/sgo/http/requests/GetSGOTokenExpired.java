@@ -1,14 +1,30 @@
 package org.plovdev.sgo.http.requests;
 
 import com.google.gson.reflect.TypeToken;
-import org.plovdev.sgo.dto.SGOState;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 
 import java.lang.reflect.Type;
 import java.util.Map;
 
-public class GetSGOState extends SGORequest<SGOState> {
+public class GetSGOTokenExpired extends SGORequest<Boolean> {
+    private String at;
+
+    public GetSGOTokenExpired(String at) {
+        this.at = at;
+    }
+
+    public GetSGOTokenExpired() {
+    }
+
+    public String getAt() {
+        return at;
+    }
+
+    public void setAt(String at) {
+        this.at = at;
+    }
+
     @Override
     public HttpMethod method() {
         return HttpMethod.GET;
@@ -16,7 +32,7 @@ public class GetSGOState extends SGORequest<SGOState> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.STATE;
+        return SGOHttpPath.EXPIRED + "?token=" + at;
     }
 
     @Override
@@ -36,6 +52,6 @@ public class GetSGOState extends SGORequest<SGOState> {
 
     @Override
     public Type responseType() {
-        return new TypeToken<SGOState>(){}.getType();
+        return new TypeToken<Boolean>(){}.getType();
     }
 }

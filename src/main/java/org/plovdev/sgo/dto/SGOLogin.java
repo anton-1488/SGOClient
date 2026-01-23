@@ -25,8 +25,8 @@ public class SGOLogin implements Serializable {
     @SerializedName("refreshToken")
     private String refreshToken;
 
-    @SerializedName("accountInfo")
-    private AccountInfo accountInfo;
+    @SerializedName("SGOAccountInfo")
+    private SGOAccountInfo SGOAccountInfo;
 
     @SerializedName("tokenType")
     private String tokenType;
@@ -40,13 +40,13 @@ public class SGOLogin implements Serializable {
     @SerializedName("errorMessage")
     private String errorMessage;
 
-    public SGOLogin(String at, String code, Integer timeOut, String accessToken, String refreshToken, AccountInfo accountInfo, String tokenType, String entryPoint, Map<String, Object> requestData, String errorMessage) {
+    public SGOLogin(String at, String code, Integer timeOut, String accessToken, String refreshToken, SGOAccountInfo SGOAccountInfo, String tokenType, String entryPoint, Map<String, Object> requestData, String errorMessage) {
         this.at = at;
         this.code = code;
         this.timeOut = timeOut;
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;
-        this.accountInfo = accountInfo;
+        this.SGOAccountInfo = SGOAccountInfo;
         this.tokenType = tokenType;
         this.entryPoint = entryPoint;
         this.requestData = requestData;
@@ -96,12 +96,12 @@ public class SGOLogin implements Serializable {
         this.refreshToken = refreshToken;
     }
 
-    public AccountInfo getAccountInfo() {
-        return accountInfo;
+    public SGOAccountInfo getAccountInfo() {
+        return SGOAccountInfo;
     }
 
-    public void setAccountInfo(AccountInfo accountInfo) {
-        this.accountInfo = accountInfo;
+    public void setAccountInfo(SGOAccountInfo SGOAccountInfo) {
+        this.SGOAccountInfo = SGOAccountInfo;
     }
 
     public String getTokenType() {
@@ -147,9 +147,9 @@ public class SGOLogin implements Serializable {
         return String.format(
                 "SGOLoginResponse{at='%s', user='%s', org='%s', token=%s}",
                 at != null ? at.substring(0, Math.min(10, at.length())) + "..." : "null",
-                accountInfo != null && accountInfo.getUser() != null ?
-                        accountInfo.getUser().getName() : "null",
-                accountInfo != null && accountInfo.getCurrentOrganization() != null ? accountInfo.getCurrentOrganization().getSchoolName() : "null",
+                SGOAccountInfo != null && SGOAccountInfo.getUser() != null ?
+                        SGOAccountInfo.getUser().getName() : "null",
+                SGOAccountInfo != null && SGOAccountInfo.getCurrentOrganization() != null ? SGOAccountInfo.getCurrentOrganization().getSchoolName() : "null",
                 accessToken != null ? "present" : "null"
         );
     }

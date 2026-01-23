@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serial;
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class SGOUser implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -15,12 +15,12 @@ public class User implements Serializable {
     @SerializedName("name")
     private String name;
 
-    public User(Integer id, String name) {
+    public SGOUser(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public User() {
+    public SGOUser() {
     }
 
     public Integer getId() {
