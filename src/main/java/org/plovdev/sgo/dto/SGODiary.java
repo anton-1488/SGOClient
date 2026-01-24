@@ -23,7 +23,7 @@ public class SGODiary implements Serializable {
     @SerializedName("className")
     private String className;
 
-    @SerializedName("SGOWeekDays")
+    @SerializedName("weekDays")
     private List<SGOWeekDay> SGOWeekDays;
 
     public SGODiary(LocalDate weekStart, LocalDate weekEnd, String termName, String className, List<SGOWeekDay> SGOWeekDays) {

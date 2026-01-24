@@ -12,7 +12,7 @@ public class SGOLesson implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @SerializedName("SGOAssignments")
+    @SerializedName("assignments")
     private List<SGOAssignment> SGOAssignments;
 
     @SerializedName("isDistanceLesson")

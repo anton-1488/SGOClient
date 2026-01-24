@@ -11,10 +11,10 @@ public class SGOWeekDay implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @SerializedName("day")
+    @SerializedName("date")
     private LocalDate day;
 
-    @SerializedName("SGOLessons")
+    @SerializedName("lessons")
     private List<SGOLesson> SGOLessons;
 
     public SGOWeekDay(LocalDate day, List<SGOLesson> SGOLessons) {

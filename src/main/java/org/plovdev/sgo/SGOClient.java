@@ -1,6 +1,5 @@
 package org.plovdev.sgo;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import org.plovdev.sgo.dto.SGOContext;
@@ -9,7 +8,10 @@ import org.plovdev.sgo.dto.SGOLoginData;
 import org.plovdev.sgo.dto.School;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
-import org.plovdev.sgo.http.requests.*;
+import org.plovdev.sgo.http.requests.GetSGOContext;
+import org.plovdev.sgo.http.requests.GetSGOLoginData;
+import org.plovdev.sgo.http.requests.SGOLoginRequest;
+import org.plovdev.sgo.http.requests.SGORequest;
 import org.plovdev.sgo.security.AuthKeys;
 import org.plovdev.sgo.security.HashUtils;
 import org.plovdev.sgo.utils.SGOResponseParser;
@@ -30,17 +32,18 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static org.plovdev.sgo.utils.Globals.GSON;
+
 public class SGOClient implements AutoCloseable {
     private static final Logger log = LoggerFactory.getLogger(SGOClient.class);
     private final CookieManager cookieManager = new CookieManager();
     private final SGOSessionRefresher refresher = new SGOSessionRefresher();
-    private final Gson gson = new Gson();
 
     private AuthKeys authKeys;
     private SGOSession currentSession;
 
     private final HttpClient httpClient = HttpClient.newBuilder()
-            .connectTimeout(Duration.ofSeconds(10))
+            .connectTimeout(Duration.ofSeconds(30))
             .followRedirects(HttpClient.Redirect.NORMAL)
             .version(HttpClient.Version.HTTP_2)
             .cookieHandler(cookieManager)
@@ -115,7 +118,7 @@ public class SGOClient implements AutoCloseable {
             String body = response.body();
             log.debug("Response body: {}", body);
 
-            return gson.fromJson(body, request.responseType());
+            return GSON.fromJson(body, request.responseType());
         } catch (Exception e) {
             log.error("Error sending request: {}", e.getMessage(), e);
             throw new RuntimeException("Request failed: " + e.getMessage(), e);
@@ -137,7 +140,7 @@ public class SGOClient implements AutoCloseable {
                 .header("Sec-Ch-Ua-Mobile", "?0")
                 .header("Sec-Ch-Ua-Platform", "\"macOS\"")
                 .header("ver-front", "5.45.78628")
-                .timeout(Duration.ofSeconds(10));
+                .timeout(Duration.ofSeconds(30));
 
         if (request.headers() != null && !request.headers().isEmpty()) {
             for (Map.Entry<String, String> entry : request.headers().entrySet()) {
@@ -184,7 +187,7 @@ public class SGOClient implements AutoCloseable {
         JsonElement loginDataElement = JsonParser.parseString(loginDataBody);
         log.debug("LoginData response: {}", loginDataElement);
 
-        return gson.fromJson(loginDataBody, getSGOLoginData.responseType());
+        return GSON.fromJson(loginDataBody, getSGOLoginData.responseType());
     }
 
 
