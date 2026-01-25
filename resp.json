@@ -1,12 +1,31 @@
-[
-    {
-        "provinceId": 0,
-        "cityId": 167,
-        "inn": "3438200440",
-        "ogrn": "1023405775030",
-        "address": "г. Урюпинск",
-        "shortName": "МАОУ \"СШ №6 \"",
-        "id": 130,
-        "name": "МАОУ \"СШ №6 \" (г. Урюпинск) "
+{
+    "userId": 0,
+    "firstName": "Антон",
+    "lastName": "Павлов",
+    "middleName": "Павлович",
+    "loginName": "ПавловАА157",
+    "birthDate": "2011-03-14T00:00:00",
+    "roles": [
+        "Student"
+    ],
+    "schoolyearId": 0,
+    "windowsAccount": null,
+    "mobilePhone": null,
+    "preferedCom": "C",
+    "email": "",
+    "existsPhoto": false,
+    "userSettings": {
+        "showMobilePhone": true,
+        "defaultDesktop": null,
+        "language": "RU",
+        "favoriteReports": [],
+        "passwordExpired": 0,
+        "recoveryAnswer": "3f5e8434bbceb275b3330fdbdaaced8d",
+        "recoveryQuestion": "Любимое блюдо",
+        "theme": 0,
+        "userId": 1870886,
+        "showNetSchoolApp": true,
+        "showSferumBanner": false,
+        "uiTheme": null
     }
-]
+}

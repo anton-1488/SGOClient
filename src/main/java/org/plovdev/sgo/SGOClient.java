@@ -68,6 +68,10 @@ public class SGOClient implements AutoCloseable {
         return currentSession;
     }
 
+    public SGOSession createSession(SGOSchool school) throws Exception {
+        return createSession(school, ClientRole.STUDENT);
+    }
+
     public SGOSession createSession(SGOSchool SGOSchool, ClientRole role) throws Exception {
         if (authKeys == null) {
             throw new IllegalArgumentException("Auth keys can't be null!");

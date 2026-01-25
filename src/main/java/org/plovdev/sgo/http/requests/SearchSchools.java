@@ -53,9 +53,11 @@ public class SearchSchools extends SGORequest<List<SGOSchool>> {
         String params = "?withAddress=" + withAddress;
         StringBuilder nameBuilder = new StringBuilder();
 
-        for (String name : searchString.split(" ")) {
-            nameBuilder.append("&name=");
-            nameBuilder.append(URLEncoder.encode(name, StandardCharsets.UTF_8));
+        if (searchString != null) {
+            for (String name : searchString.split(" ")) {
+                nameBuilder.append("&name=");
+                nameBuilder.append(URLEncoder.encode(name, StandardCharsets.UTF_8));
+            }
         }
         params = params + nameBuilder;
 

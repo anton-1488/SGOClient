@@ -15,4 +15,5 @@ public interface SGOHttpPath {
     String NEGOTINATE = "signalr/queueHub/negotiate";
     String EARLY_ACCESS = "webapi/earlyaccess";
     String SEARCH_SCHOOL = "webapi/schools/search";
+    String ACCOUNT_FULL_INFO = "webapi/mysettings";
 }
