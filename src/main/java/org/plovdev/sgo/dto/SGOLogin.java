@@ -149,7 +149,7 @@ public class SGOLogin implements Serializable {
                 at != null ? at.substring(0, Math.min(10, at.length())) + "..." : "null",
                 SGOAccountInfo != null && SGOAccountInfo.getUser() != null ?
                         SGOAccountInfo.getUser().getName() : "null",
-                SGOAccountInfo != null && SGOAccountInfo.getCurrentOrganization() != null ? SGOAccountInfo.getCurrentOrganization().getSchoolName() : "null",
+                SGOAccountInfo != null && SGOAccountInfo.getCurrentOrganization() != null ? SGOAccountInfo.getCurrentOrganization().getName() : "null",
                 accessToken != null ? "present" : "null"
         );
     }

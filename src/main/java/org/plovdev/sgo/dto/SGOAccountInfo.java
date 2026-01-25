@@ -17,7 +17,7 @@ public class SGOAccountInfo implements Serializable {
     private String secureActiveToken;
 
     @SerializedName("currentOrganization")
-    private School currentOrganization;
+    private SGOSchool currentOrganization;
 
     @SerializedName("user")
     private SGOUser SGOUser;
@@ -26,7 +26,7 @@ public class SGOAccountInfo implements Serializable {
     private List<String> userRoles;
 
     @SerializedName("organizations")
-    private List<School> organizations;
+    private List<SGOSchool> organizations;
 
     @SerializedName("loginTime")
     private String loginTime;
@@ -44,7 +44,7 @@ public class SGOAccountInfo implements Serializable {
     private String accessToken;
 
 
-    public SGOAccountInfo(String activeToken, String secureActiveToken, School currentOrganization, SGOUser SGOUser, List<String> userRoles, List<School> organizations, String loginTime, Boolean active, Boolean canLogin, Boolean storeTokens, String accessToken) {
+    public SGOAccountInfo(String activeToken, String secureActiveToken, SGOSchool currentOrganization, SGOUser SGOUser, List<String> userRoles, List<SGOSchool> organizations, String loginTime, Boolean active, Boolean canLogin, Boolean storeTokens, String accessToken) {
         this.activeToken = activeToken;
         this.secureActiveToken = secureActiveToken;
         this.currentOrganization = currentOrganization;
@@ -77,11 +77,11 @@ public class SGOAccountInfo implements Serializable {
         this.secureActiveToken = secureActiveToken;
     }
 
-    public School getCurrentOrganization() {
+    public SGOSchool getCurrentOrganization() {
         return currentOrganization;
     }
 
-    public void setCurrentOrganization(School currentOrganization) {
+    public void setCurrentOrganization(SGOSchool currentOrganization) {
         this.currentOrganization = currentOrganization;
     }
 
@@ -101,11 +101,11 @@ public class SGOAccountInfo implements Serializable {
         this.userRoles = userRoles;
     }
 
-    public List<School> getOrganizations() {
+    public List<SGOSchool> getOrganizations() {
         return organizations;
     }
 
-    public void setOrganizations(List<School> organizations) {
+    public void setOrganizations(List<SGOSchool> organizations) {
         this.organizations = organizations;
     }
 

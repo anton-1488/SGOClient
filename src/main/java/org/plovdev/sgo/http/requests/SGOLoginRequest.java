@@ -3,7 +3,7 @@ package org.plovdev.sgo.http.requests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.plovdev.sgo.dto.SGOLogin;
-import org.plovdev.sgo.dto.School;
+import org.plovdev.sgo.dto.SGOSchool;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 
@@ -22,14 +22,14 @@ public class SGOLoginRequest extends SGORequest<SGOLogin> {
     private String password;
     private String lt;
     private String ver;
-    private School school;
+    private SGOSchool SGOSchool;
 
-    public SGOLoginRequest(String username, String pw, String lt, String ver, School school) {
+    public SGOLoginRequest(String username, String pw, String lt, String ver, SGOSchool SGOSchool) {
         this.username = username;
         this.password = pw;
         this.lt = lt;
         this.ver = ver;
-        this.school = school;
+        this.SGOSchool = SGOSchool;
     }
 
     public String getAcrValues() {
@@ -80,12 +80,12 @@ public class SGOLoginRequest extends SGORequest<SGOLogin> {
         this.ver = ver;
     }
 
-    public School getSchool() {
-        return school;
+    public SGOSchool getSchool() {
+        return SGOSchool;
     }
 
-    public void setSchool(School school) {
-        this.school = school;
+    public void setSchool(SGOSchool SGOSchool) {
+        this.SGOSchool = SGOSchool;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class SGOLoginRequest extends SGORequest<SGOLogin> {
                     loginType,
                     lt,
                     password,
-                    school.getSchoolId(),
+                    SGOSchool.getId(),
                     URLEncoder.encode(username, StandardCharsets.UTF_8),
                     ver
             );

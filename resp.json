@@ -1,22 +1,12 @@
-{
-    "mailMessagesUnreadCount": 56,
-    "mailError": null,
-    "activeSessionsCount": 17,
-    "notifications": [
-        {
-            "type": "security-warning",
-            "data": {
-                "loginName": "ПавловАА157",
-                "nickName": "Павлов Антон",
-                "coWorkers": [
-                    {
-                        "loginTimeInto": "25.01.2026 19:27:10",
-                        "logoutTimeFrom": null,
-                        "ipAddress": "85.26.232.247"
-                    }
-                ],
-                "warnType": "CoWrk"
-            }
-        }
-    ]
-}
+[
+    {
+        "provinceId": 0,
+        "cityId": 167,
+        "inn": "3438200440",
+        "ogrn": "1023405775030",
+        "address": "г. Урюпинск",
+        "shortName": "МАОУ \"СШ №6 \"",
+        "id": 130,
+        "name": "МАОУ \"СШ №6 \" (г. Урюпинск) "
+    }
+]

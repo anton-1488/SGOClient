@@ -14,4 +14,5 @@ public interface SGOHttpPath {
     String REPORT_TASK = "signalr/queueHub";
     String NEGOTINATE = "signalr/queueHub/negotiate";
     String EARLY_ACCESS = "webapi/earlyaccess";
+    String SEARCH_SCHOOL = "webapi/schools/search";
 }

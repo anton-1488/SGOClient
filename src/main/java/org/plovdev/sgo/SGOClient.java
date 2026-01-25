@@ -5,7 +5,7 @@ import com.google.gson.JsonParser;
 import org.plovdev.sgo.dto.SGOContext;
 import org.plovdev.sgo.dto.SGOLogin;
 import org.plovdev.sgo.dto.SGOLoginData;
-import org.plovdev.sgo.dto.School;
+import org.plovdev.sgo.dto.SGOSchool;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.GetSGOContext;
@@ -68,7 +68,7 @@ public class SGOClient implements AutoCloseable {
         return currentSession;
     }
 
-    public SGOSession createSession(School school, ClientRole role) throws Exception {
+    public SGOSession createSession(SGOSchool SGOSchool, ClientRole role) throws Exception {
         if (authKeys == null) {
             throw new IllegalArgumentException("Auth keys can't be null!");
         }
@@ -76,12 +76,12 @@ public class SGOClient implements AutoCloseable {
             return currentSession;
         }
 
-        makeInitialRequest(school);
+        makeInitialRequest(SGOSchool);
         String cookieHeader = getCookieHeader();
         SGOLoginData loginData = getLoginData();
         SGOSession sgoSession = new SGOSession(cookieHeader, loginData, new SGOLogin(), new SGOContext());
 
-        SGOLoginRequest sgoLoginRequest = new SGOLoginRequest(authKeys.username(), HashUtils.createPassword(loginData.getSalt(), authKeys.password()), loginData.getLt(), loginData.getVer(), school);
+        SGOLoginRequest sgoLoginRequest = new SGOLoginRequest(authKeys.username(), HashUtils.createPassword(loginData.getSalt(), authKeys.password()), loginData.getLt(), loginData.getVer(), SGOSchool);
         if (role == ClientRole.TEACHER) {
             sgoLoginRequest.setLoginType(2);
         } else {
@@ -121,9 +121,8 @@ public class SGOClient implements AutoCloseable {
             }
             String body = response.body();
             log.debug("Response body: {}", body);
-            System.out.println(body);
 
-            if (body.startsWith("{}") || (!body.startsWith("{") && !body.endsWith("}"))) {
+            if (body.startsWith("{}") || (!(body.startsWith("{") || body.startsWith("[")) && !(body.endsWith("}") || body.endsWith("]")))) {
                 return null;
             }
 
@@ -232,7 +231,7 @@ public class SGOClient implements AutoCloseable {
     /**
      * Начальный запрос для получения сессии и Referer
      */
-    private void makeInitialRequest(School school) {
+    private void makeInitialRequest(SGOSchool SGOSchool) {
         try {
             String initialUrl = SGOHttpPath.BASE_HOST + "authorize/login?back=1";
             HttpRequest initialRequest = HttpRequest.newBuilder()
