@@ -34,7 +34,10 @@ public class SGOAssignment implements Serializable {
     @SerializedName("issueClassMeetingId")
     private long issueClassMeetingId;
 
-    public SGOAssignment(int id, int typeId, String assignmentName, int weight, LocalDate dueDate, boolean classAssignment, long classMeetingId, long issueClassMeetingId) {
+    @SerializedName("mark")
+    private SGOMark mark;
+
+    public SGOAssignment(int id, int typeId, String assignmentName, int weight, LocalDate dueDate, boolean classAssignment, long classMeetingId, long issueClassMeetingId, SGOMark mark) {
         this.id = id;
         this.typeId = typeId;
         this.assignmentName = assignmentName;
@@ -43,6 +46,7 @@ public class SGOAssignment implements Serializable {
         this.classAssignment = classAssignment;
         this.classMeetingId = classMeetingId;
         this.issueClassMeetingId = issueClassMeetingId;
+        this.mark = mark;
     }
 
     public SGOAssignment() {
@@ -112,6 +116,14 @@ public class SGOAssignment implements Serializable {
         this.issueClassMeetingId = issueClassMeetingId;
     }
 
+    public SGOMark getMark() {
+        return mark;
+    }
+
+    public void setMark(SGOMark mark) {
+        this.mark = mark;
+    }
+
     @Override
     public String toString() {
         return "SGOAssignment{" +
@@ -123,6 +135,7 @@ public class SGOAssignment implements Serializable {
                 ", classAssignment=" + classAssignment +
                 ", classMeetingId=" + classMeetingId +
                 ", issueClassMeetingId=" + issueClassMeetingId +
+                ", mark=" + mark +
                 '}';
     }
 }

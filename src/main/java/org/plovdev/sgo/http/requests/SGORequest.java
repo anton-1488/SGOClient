@@ -6,6 +6,8 @@ import java.lang.reflect.Type;
 import java.util.Map;
 
 public abstract class SGORequest<T> {
+    public SGORequest() {}
+
     public abstract HttpMethod method();
     public abstract String endpoint();
     public abstract String params();

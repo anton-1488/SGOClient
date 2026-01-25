@@ -1,12 +1,15 @@
-package org.plovdev.sgo.utils;
+package org.plovdev.sgo.utils.json;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.plovdev.sgo.dto.SGOLogin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SGOResponseParser {
     private static final Gson gson = new Gson();
+    private static final Logger log = LoggerFactory.getLogger(SGOResponseParser.class);
 
     /**
      * Парсит JSON ответ от /auth/login

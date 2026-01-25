@@ -2,13 +2,16 @@ package org.plovdev.sgo.http;
 
 public interface SGOHttpPath {
     String BASE_HOST = "http://sgo.volganet.ru/";
-    String BASE_HTTP_URL = "http://sgo.volganet.ru/webapi/";
-    String LOGIN_DATA = "auth/getdata";
-    String LOGIN = "auth/login";
-    String STATE = "context/state";
-    String EXPIRED = "context/expired";
-    String DIARY = "student/diary";
-    String CONTEXT = "context";
-    String USER_SETTINGS = "usersettings";
-    String SCHEDULE = "subjectgroups";
+    String LOGIN_DATA = "webapi/auth/getdata";
+    String LOGIN = "webapi/auth/login";
+    String STATE = "webapi/context/state";
+    String EXPIRED = "webapi/context/expired";
+    String DIARY = "webapi/student/diary";
+    String CONTEXT = "webapi/context";
+    String USER_SETTINGS = "webapi/usersettings";
+    String SCHEDULE = "webapi/subjectgroups";
+    String REPORT_QUEUE = "webapi/reports/studenttotal/queue";
+    String REPORT_TASK = "signalr/queueHub";
+    String NEGOTINATE = "signalr/queueHub/negotiate";
+    String EARLY_ACCESS = "webapi/earlyaccess";
 }

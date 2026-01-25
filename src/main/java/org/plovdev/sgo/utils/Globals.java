@@ -15,6 +15,8 @@ public class Globals {
         GSON = new GsonBuilder()
                 .registerTypeAdapter(LocalDate.class, new DateAdapter())
                 .registerTypeAdapter(LocalTime.class, new TimeAdapter())
+                .setLenient()
                 .create();
+
     }
 }

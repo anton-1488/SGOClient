@@ -14,7 +14,7 @@ import org.plovdev.sgo.http.requests.SGOLoginRequest;
 import org.plovdev.sgo.http.requests.SGORequest;
 import org.plovdev.sgo.security.AuthKeys;
 import org.plovdev.sgo.security.HashUtils;
-import org.plovdev.sgo.utils.SGOResponseParser;
+import org.plovdev.sgo.utils.json.SGOResponseParser;
 import org.plovdev.sgo.utils.SGOSessionRefresher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +43,7 @@ public class SGOClient implements AutoCloseable {
     private SGOSession currentSession;
 
     private final HttpClient httpClient = HttpClient.newBuilder()
-            .connectTimeout(Duration.ofSeconds(30))
+            .connectTimeout(Duration.ofSeconds(60))
             .followRedirects(HttpClient.Redirect.NORMAL)
             .version(HttpClient.Version.HTTP_2)
             .cookieHandler(cookieManager)
@@ -62,6 +62,10 @@ public class SGOClient implements AutoCloseable {
 
     public void setAuthKeys(AuthKeys authKeys) {
         this.authKeys = authKeys;
+    }
+
+    public SGOSession getCurrentSession() {
+        return currentSession;
     }
 
     public SGOSession createSession(School school, ClientRole role) throws Exception {
@@ -117,17 +121,22 @@ public class SGOClient implements AutoCloseable {
             }
             String body = response.body();
             log.debug("Response body: {}", body);
+            System.out.println(body);
+
+            if (body.startsWith("{}") || (!body.startsWith("{") && !body.endsWith("}"))) {
+                return null;
+            }
 
             return GSON.fromJson(body, request.responseType());
         } catch (Exception e) {
             log.error("Error sending request: {}", e.getMessage(), e);
-            throw new RuntimeException("Request failed: " + e.getMessage(), e);
+            return null;
         }
     }
 
     private HttpRequest buildRequest(SGORequest<?> request) {
         HttpRequest.Builder builder = HttpRequest.newBuilder()
-                .uri(URI.create(SGOHttpPath.BASE_HTTP_URL + request.endpoint()))
+                .uri(URI.create(SGOHttpPath.BASE_HOST + request.endpoint()))
                 .header("Content-Type", request.contentType())
                 .header("Accept", "application/json, text/plain, */*")
                 .header("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
@@ -140,7 +149,7 @@ public class SGOClient implements AutoCloseable {
                 .header("Sec-Ch-Ua-Mobile", "?0")
                 .header("Sec-Ch-Ua-Platform", "\"macOS\"")
                 .header("ver-front", "5.45.78628")
-                .timeout(Duration.ofSeconds(30));
+                .timeout(Duration.ofSeconds(60));
 
         if (request.headers() != null && !request.headers().isEmpty()) {
             for (Map.Entry<String, String> entry : request.headers().entrySet()) {
@@ -160,10 +169,13 @@ public class SGOClient implements AutoCloseable {
         }
 
         if (request.method() == HttpMethod.GET) {
+            String params = request.params();
+            if (params != null && !params.trim().isEmpty()) {
+                builder.uri(URI.create(SGOHttpPath.BASE_HOST + request.endpoint() + "?" + params));
+            }
             return builder.GET().build();
         } else if (request.method() == HttpMethod.POST) {
             String body = request.params();
-            // Для POST запросов
             if (body == null || body.trim().isEmpty()) {
                 return builder.POST(HttpRequest.BodyPublishers.noBody()).build();
             } else {
@@ -210,7 +222,7 @@ public class SGOClient implements AutoCloseable {
 
             return sb.toString();
         } catch (Exception e) {
-            System.err.println("Ошибка получения кук: " + e.getMessage());
+            log.error("Error to get cookie: ");
             return "";
         }
     }
