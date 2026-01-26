@@ -8,9 +8,9 @@ import org.plovdev.sgo.dto.SGOLoginData;
 import org.plovdev.sgo.dto.SGOSchool;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
-import org.plovdev.sgo.http.requests.GetSGOContext;
-import org.plovdev.sgo.http.requests.GetSGOLoginData;
-import org.plovdev.sgo.http.requests.SGOLoginRequest;
+import org.plovdev.sgo.http.requests.commons.GetSGOContext;
+import org.plovdev.sgo.http.requests.login.GetSGOLoginData;
+import org.plovdev.sgo.http.requests.login.SGOLoginRequest;
 import org.plovdev.sgo.http.requests.SGORequest;
 import org.plovdev.sgo.security.AuthKeys;
 import org.plovdev.sgo.security.HashUtils;
@@ -124,7 +124,7 @@ public class SGOClient implements AutoCloseable {
                 throw new RuntimeException("HTTP error: " + response.statusCode() + ", body: " + response.body());
             }
             String body = response.body();
-            log.debug("Response body: {}", body);
+            log.info("Response body: {}", body);
 
             if (body.startsWith("{}") || (!(body.startsWith("{") || body.startsWith("[")) && !(body.endsWith("}") || body.endsWith("]")))) {
                 return null;

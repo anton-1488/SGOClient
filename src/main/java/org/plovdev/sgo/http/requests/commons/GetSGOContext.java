@@ -1,14 +1,15 @@
-package org.plovdev.sgo.http.requests;
+package org.plovdev.sgo.http.requests.commons;
 
 import com.google.gson.reflect.TypeToken;
-import org.plovdev.sgo.dto.SGOState;
+import org.plovdev.sgo.dto.SGOContext;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
+import org.plovdev.sgo.http.requests.SGORequest;
 
 import java.lang.reflect.Type;
 import java.util.Map;
 
-public class GetSGOState extends SGORequest<SGOState> {
+public class GetSGOContext extends SGORequest<SGOContext> {
     @Override
     public HttpMethod method() {
         return HttpMethod.GET;
@@ -16,7 +17,7 @@ public class GetSGOState extends SGORequest<SGOState> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.STATE;
+        return SGOHttpPath.CONTEXT;
     }
 
     @Override
@@ -36,6 +37,6 @@ public class GetSGOState extends SGORequest<SGOState> {
 
     @Override
     public Type responseType() {
-        return new TypeToken<SGOState>(){}.getType();
+        return new TypeToken<SGOContext>(){}.getType();
     }
 }

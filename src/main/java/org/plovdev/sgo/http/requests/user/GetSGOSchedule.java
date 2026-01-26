@@ -1,29 +1,31 @@
-package org.plovdev.sgo.http.requests;
+package org.plovdev.sgo.http.requests.user;
 
 import com.google.gson.reflect.TypeToken;
-import org.plovdev.sgo.dto.SGOUserSettings;
+import org.plovdev.sgo.dto.SGOSchedule;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
+import org.plovdev.sgo.http.requests.SGORequest;
 
 import java.lang.reflect.Type;
+import java.util.List;
 import java.util.Map;
 
-public class GetSGOUserSettings extends SGORequest<SGOUserSettings> {
-    private int userId;
+public class GetSGOSchedule extends SGORequest<List<SGOSchedule>> {
+    private String iupClassId;
 
-    public GetSGOUserSettings(int userId) {
-        this.userId = userId;
+    public GetSGOSchedule(String iupClassId) {
+        this.iupClassId = iupClassId;
     }
 
-    public GetSGOUserSettings() {
+    public GetSGOSchedule() {
     }
 
-    public int getUserId() {
-        return userId;
+    public String getIupClassId() {
+        return iupClassId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setIupClassId(String iupClassId) {
+        this.iupClassId = iupClassId;
     }
 
     @Override
@@ -33,7 +35,7 @@ public class GetSGOUserSettings extends SGORequest<SGOUserSettings> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.USER_SETTINGS + "?userId=" + userId;
+        return SGOHttpPath.SCHEDULE + "?iupClassId=" + iupClassId;
     }
 
     @Override
@@ -53,6 +55,6 @@ public class GetSGOUserSettings extends SGORequest<SGOUserSettings> {
 
     @Override
     public Type responseType() {
-        return new TypeToken<SGOUserSettings>(){}.getType();
+        return new TypeToken<List<SGOSchedule>>(){}.getType();
     }
 }

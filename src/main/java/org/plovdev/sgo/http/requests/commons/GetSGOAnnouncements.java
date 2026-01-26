@@ -1,30 +1,31 @@
-package org.plovdev.sgo.http.requests;
+package org.plovdev.sgo.http.requests.commons;
 
 import com.google.gson.reflect.TypeToken;
-import org.plovdev.sgo.dto.SGOSchedule;
+import org.plovdev.sgo.dto.SGOAnnouncement;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
+import org.plovdev.sgo.http.requests.SGORequest;
 
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-public class GetSGOSchedule extends SGORequest<List<SGOSchedule>> {
-    private String iupClassId;
+public class GetSGOAnnouncements extends SGORequest<List<SGOAnnouncement>> {
+    private int take = -1;
 
-    public GetSGOSchedule(String iupClassId) {
-        this.iupClassId = iupClassId;
+    public GetSGOAnnouncements(int take) {
+        this.take = take;
     }
 
-    public GetSGOSchedule() {
+    public GetSGOAnnouncements() {
     }
 
-    public String getIupClassId() {
-        return iupClassId;
+    public int getTake() {
+        return take;
     }
 
-    public void setIupClassId(String iupClassId) {
-        this.iupClassId = iupClassId;
+    public void setTake(int take) {
+        this.take = take;
     }
 
     @Override
@@ -34,12 +35,12 @@ public class GetSGOSchedule extends SGORequest<List<SGOSchedule>> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.SCHEDULE + "?iupClassId=" + iupClassId;
+        return SGOHttpPath.ANNOUNCEMENTS;
     }
 
     @Override
     public String params() {
-        return "";
+        return "?take=" + take;
     }
 
     @Override
@@ -54,6 +55,6 @@ public class GetSGOSchedule extends SGORequest<List<SGOSchedule>> {
 
     @Override
     public Type responseType() {
-        return new TypeToken<List<SGOSchedule>>(){}.getType();
+        return new TypeToken<List<SGOAnnouncement>>(){}.getType();
     }
 }

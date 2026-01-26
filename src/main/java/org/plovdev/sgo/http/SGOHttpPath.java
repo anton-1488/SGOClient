@@ -16,4 +16,5 @@ public interface SGOHttpPath {
     String EARLY_ACCESS = "webapi/earlyaccess";
     String SEARCH_SCHOOL = "webapi/schools/search";
     String ACCOUNT_FULL_INFO = "webapi/mysettings";
+    String ANNOUNCEMENTS = "webapi/announcements";
 }

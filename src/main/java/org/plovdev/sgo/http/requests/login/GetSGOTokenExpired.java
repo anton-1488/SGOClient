@@ -1,14 +1,31 @@
-package org.plovdev.sgo.http.requests;
+package org.plovdev.sgo.http.requests.login;
 
 import com.google.gson.reflect.TypeToken;
-import org.plovdev.sgo.dto.SGOContext;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
+import org.plovdev.sgo.http.requests.SGORequest;
 
 import java.lang.reflect.Type;
 import java.util.Map;
 
-public class GetSGOContext extends SGORequest<SGOContext> {
+public class GetSGOTokenExpired extends SGORequest<Boolean> {
+    private String at;
+
+    public GetSGOTokenExpired(String at) {
+        this.at = at;
+    }
+
+    public GetSGOTokenExpired() {
+    }
+
+    public String getAt() {
+        return at;
+    }
+
+    public void setAt(String at) {
+        this.at = at;
+    }
+
     @Override
     public HttpMethod method() {
         return HttpMethod.GET;
@@ -16,7 +33,7 @@ public class GetSGOContext extends SGORequest<SGOContext> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.CONTEXT;
+        return SGOHttpPath.EXPIRED + "?token=" + at;
     }
 
     @Override
@@ -36,6 +53,6 @@ public class GetSGOContext extends SGORequest<SGOContext> {
 
     @Override
     public Type responseType() {
-        return new TypeToken<SGOContext>(){}.getType();
+        return new TypeToken<Boolean>(){}.getType();
     }
 }

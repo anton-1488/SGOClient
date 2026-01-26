@@ -1,16 +1,19 @@
 import org.plovdev.sgo.SGOClient;
-import org.plovdev.sgo.dto.SGOUserFullInfo;
+import org.plovdev.sgo.SGOSession;
+import org.plovdev.sgo.dto.SGODiary;
 import org.plovdev.sgo.dto.Schools;
-import org.plovdev.sgo.http.requests.GetSGOUserFullInfo;
+import org.plovdev.sgo.http.requests.user.GetSGODiary;
 import org.plovdev.sgo.security.AuthKeys;
+
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
         try (SGOClient client = new SGOClient(new AuthKeys("ПавловАА157", "1431190s"))) {
-            client.createSession(Schools.MAOU6);
+            SGOSession sgoSession = client.createSession(Schools.MAOU6);
 
-            SGOUserFullInfo info = client.execute(new GetSGOUserFullInfo());
-            System.out.println(info);
+            SGODiary diary = client.execute(new GetSGODiary(LocalDate.now().minusDays(8), LocalDate.now().minusDays(1), sgoSession.getSgoContext().getUserId(), sgoSession.getSgoContext().getYearId()));
+            System.out.println(diary);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

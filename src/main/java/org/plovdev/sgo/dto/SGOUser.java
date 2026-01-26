@@ -12,7 +12,7 @@ public class SGOUser implements Serializable {
     @SerializedName("id")
     private Integer id;
 
-    @SerializedName("name")
+    @SerializedName(value = "name", alternate = {"nickName"})
     private String name;
 
     public SGOUser(Integer id, String name) {

@@ -1,31 +1,264 @@
 {
-    "userId": 0,
-    "firstName": "Антон",
-    "lastName": "Павлов",
-    "middleName": "Павлович",
-    "loginName": "ПавловАА157",
-    "birthDate": "2011-03-14T00:00:00",
-    "roles": [
-        "Student"
+    "at": "42397639050543436609143487",
+    "userId": 171963,
+    "funcType": "School",
+    "schoolId": 130,
+    "schoolYearId": 91715,
+    "globalYearId": 25,
+    "productName": "Сетевой Город. Образование",
+    "copyright": "© 2007-2025 ИРТех, г. Самара. Все права защищены",
+    "userLanguage": "ru",
+    "version": "5.45.78631.14",
+    "versionDate": null,
+    "organizationName": "Муниципальное автономное общеобразовательное учреждение \"Средняя школа №6\" городского округа город Урюпинск Волгоградской области",
+    "menuContext": {
+        "modelMenu": [
+            {
+                "id": 22,
+                "title": "Главная",
+                "selected": false,
+                "dropDownMenu": false,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 10,
+                "subMenus": null,
+                "tabItemInfos": [
+                    {
+                        "title": "Главная",
+                        "id": 92,
+                        "url": "/app/school/main/",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": true
+            },
+            {
+                "id": 12,
+                "title": "Расписание ",
+                "selected": false,
+                "dropDownMenu": true,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 20,
+                "subMenus": null,
+                "tabItemInfos": [
+                    {
+                        "title": "Год",
+                        "id": 9,
+                        "url": "/app/school/schedule/year/",
+                        "selected": false
+                    },
+                    {
+                        "title": "Месяц",
+                        "id": 18,
+                        "url": "/app/school/schedule/month/",
+                        "selected": false
+                    },
+                    {
+                        "title": "Неделя",
+                        "id": 19,
+                        "url": "/app/school/schedule/week/",
+                        "selected": false
+                    },
+                    {
+                        "title": "День",
+                        "id": 20,
+                        "url": "/app/school/schedule/day/",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": false
+            },
+            {
+                "id": 14,
+                "title": "Отчеты",
+                "selected": false,
+                "dropDownMenu": false,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 30,
+                "subMenus": null,
+                "tabItemInfos": [
+                    {
+                        "title": "Отчеты",
+                        "id": 24,
+                        "url": "/app/school/reports/",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": true
+            },
+            {
+                "id": 16,
+                "title": "Дневник",
+                "selected": false,
+                "dropDownMenu": true,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 40,
+                "subMenus": null,
+                "tabItemInfos": [
+                    {
+                        "title": "Дневник",
+                        "id": 30,
+                        "url": "/app/school/studentdiary/",
+                        "selected": false
+                    },
+                    {
+                        "title": "Домашние задания",
+                        "id": 126,
+                        "url": "/app/school/homework",
+                        "selected": false
+                    },
+                    {
+                        "title": "Конструктор уроков",
+                        "id": 76,
+                        "url": "/app/school/newdisk/constructor",
+                        "selected": false
+                    },
+                    {
+                        "title": "Учебные курсы",
+                        "id": 31,
+                        "url": "/app/school/activities/",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": false
+            },
+            {
+                "id": 39,
+                "title": "Чаты",
+                "selected": false,
+                "dropDownMenu": false,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 55,
+                "subMenus": null,
+                "tabItemInfos": [
+                    {
+                        "title": "Чаты",
+                        "id": 122,
+                        "url": "/app/school/chats/",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": true
+            },
+            {
+                "id": 15,
+                "title": "Ресурсы",
+                "selected": false,
+                "dropDownMenu": true,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 60,
+                "subMenus": null,
+                "tabItemInfos": [
+                    {
+                        "title": "Каталог ссылок",
+                        "id": 40,
+                        "url": "/app/school/resources",
+                        "selected": false
+                    },
+                    {
+                        "title": "Документы",
+                        "id": 8,
+                        "url": "/app/school/docs/",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": false
+            },
+            {
+                "id": 23,
+                "title": "Портфолио",
+                "selected": false,
+                "dropDownMenu": true,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 70,
+                "subMenus": [],
+                "tabItemInfos": [
+                    {
+                        "title": "Личный портфолио",
+                        "id": 51,
+                        "url": "/app/school/portfolio/personal",
+                        "selected": false
+                    },
+                    {
+                        "title": "Портфолио проектов",
+                        "id": 52,
+                        "url": "/app/school/portfolio/projects",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": false
+            },
+            {
+                "id": 17,
+                "title": "МСОКО",
+                "selected": false,
+                "dropDownMenu": false,
+                "hasSubMenus": false,
+                "hasTabItems": true,
+                "order": 80,
+                "subMenus": null,
+                "tabItemInfos": [
+                    {
+                        "title": "МСОКО",
+                        "id": 56,
+                        "url": "window:/webapi/qualityassessment/login",
+                        "selected": false
+                    }
+                ],
+                "collapseSingleTab": true
+            }
+        ],
+        "menuItemInfo": null,
+        "tabItemInfo": null
+    },
+    "rights": [
+        15,
+        24,
+        25,
+        27,
+        28,
+        35,
+        56,
+        78,
+        86,
+        87,
+        88
     ],
-    "schoolyearId": 0,
-    "windowsAccount": null,
-    "mobilePhone": null,
-    "preferedCom": "C",
-    "email": "",
-    "existsPhoto": false,
-    "userSettings": {
-        "showMobilePhone": true,
-        "defaultDesktop": null,
-        "language": "RU",
-        "favoriteReports": [],
-        "passwordExpired": 0,
-        "recoveryAnswer": "3f5e8434bbceb275b3330fdbdaaced8d",
-        "recoveryQuestion": "Любимое блюдо",
-        "theme": 0,
-        "userId": 1870886,
-        "showNetSchoolApp": true,
-        "showSferumBanner": false,
-        "uiTheme": null
-    }
+    "roles": [
+        5
+    ],
+    "schoolyear": {
+        "globalYear": {
+            "startDate": "2025-09-01T00:00:00",
+            "endDate": "2026-08-31T00:00:00",
+            "id": 25,
+            "name": "2025/2026"
+        },
+        "schoolId": 130,
+        "startDate": "2025-09-01T00:00:00",
+        "endDate": "2026-08-31T00:00:00",
+        "closed": "Open",
+        "id": 91715,
+        "name": "2025/2026"
+    },
+    "user": {
+        "id": 171963,
+        "name": "Калмыкова Екатерина"
+    },
+    "organization": {
+        "id": 130,
+        "name": "МАОУ \"СШ №6 \""
+    },
+    "dateFormat": "d\u0001mm\u0001yy\u0001.",
+    "timeFormat": "h\u0001mm\u0001:\u0001\u0001",
+    "isEmForSchool": false,
+    "yaCounterOff": false,
+    "yaCounterCode": null,
+    "serverId": "6847CC44-00DD-4BC7-BDD4-684146C2FBA1"
 }

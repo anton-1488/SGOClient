@@ -2,7 +2,7 @@ package org.plovdev.sgo.tools;
 
 import org.plovdev.sgo.SGOClient;
 import org.plovdev.sgo.dto.SGOSchool;
-import org.plovdev.sgo.http.requests.SearchSchools;
+import org.plovdev.sgo.http.requests.commons.SearchSchools;
 
 import java.util.List;
 import java.util.Optional;

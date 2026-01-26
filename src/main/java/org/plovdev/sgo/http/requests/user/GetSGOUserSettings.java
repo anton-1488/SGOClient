@@ -1,28 +1,30 @@
-package org.plovdev.sgo.http.requests;
+package org.plovdev.sgo.http.requests.user;
 
 import com.google.gson.reflect.TypeToken;
+import org.plovdev.sgo.dto.SGOUserSettings;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
+import org.plovdev.sgo.http.requests.SGORequest;
 
 import java.lang.reflect.Type;
 import java.util.Map;
 
-public class GetSGOTokenExpired extends SGORequest<Boolean> {
-    private String at;
+public class GetSGOUserSettings extends SGORequest<SGOUserSettings> {
+    private int userId;
 
-    public GetSGOTokenExpired(String at) {
-        this.at = at;
+    public GetSGOUserSettings(int userId) {
+        this.userId = userId;
     }
 
-    public GetSGOTokenExpired() {
+    public GetSGOUserSettings() {
     }
 
-    public String getAt() {
-        return at;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setAt(String at) {
-        this.at = at;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -32,7 +34,7 @@ public class GetSGOTokenExpired extends SGORequest<Boolean> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.EXPIRED + "?token=" + at;
+        return SGOHttpPath.USER_SETTINGS + "?userId=" + userId;
     }
 
     @Override
@@ -52,6 +54,6 @@ public class GetSGOTokenExpired extends SGORequest<Boolean> {
 
     @Override
     public Type responseType() {
-        return new TypeToken<Boolean>(){}.getType();
+        return new TypeToken<SGOUserSettings>(){}.getType();
     }
 }
