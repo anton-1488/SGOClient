@@ -1,23 +1,29 @@
-package org.plovdev.sgo.reports.requests;
+package org.plovdev.sgo.reports.requests.ws;
 
 import com.google.gson.reflect.TypeToken;
+import org.plovdev.sgo.SGOSession;
+import org.plovdev.sgo.dto.SGOLogin;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
+import org.plovdev.sgo.utils.Globals;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class BreakSignalrPolling extends SGORequest<Void> {
+public class SGONegotinateRequest extends SGORequest<Void> {
     private String at;
-    private String id;
 
-    public BreakSignalrPolling(String at, String id) {
+    public SGONegotinateRequest(String at) {
         this.at = at;
-        this.id = id;
     }
 
-    public BreakSignalrPolling() {
+    public SGONegotinateRequest() {
+        SGOSession curr = Globals.getCurrentSession();
+        if (curr != null) {
+            SGOLogin login = curr.getSgoLogin();
+            at = login.getAt();
+        }
     }
 
     public String getAt() {
@@ -28,22 +34,14 @@ public class BreakSignalrPolling extends SGORequest<Void> {
         this.at = at;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     @Override
     public HttpMethod method() {
-        return HttpMethod.DELETE;
+        return HttpMethod.GET;
     }
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.REPORT_TASK + String.format("?at=%s&id=%s", at, id);
+        return SGOHttpPath.REPORT_TASK + String.format("?at=%s", at);
     }
 
     @Override
@@ -53,14 +51,16 @@ public class BreakSignalrPolling extends SGORequest<Void> {
 
     @Override
     public String contentType() {
-        return "text/plain";
+        return "application/json";
     }
 
     @Override
     public Map<String, String> headers() {
         Map<String, String> headers = new HashMap<>();
-        headers.put("Accept", "*/*");
-        headers.put("X-SignalR-User-Agent", "Microsoft SignalR/5.0 (5.0.11; Unknown OS; Browser; Unknown Runtime Version)");
+        headers.put("Sec-Websocket-Extensions", "permessage-deflate; client_max_window_bits");
+        headers.put("Sec-Websocket-Key", "EH8TRjsB6pTO7hAxQzDMdA==");
+        headers.put("Sec-Websocket-Version", "13");
+
         return headers;
     }
 

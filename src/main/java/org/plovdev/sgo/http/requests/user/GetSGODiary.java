@@ -6,27 +6,16 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
-import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
-/*
-schoolId: 130
-studentId: 931474
-vers: 1768844293853
-weekEnd: 2026-02-01
-weekStart: 2026-01-26
-withLaAssigns: true
-yearId: 91715
- */
 public class GetSGODiary extends SGORequest<SGODiary> {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private LocalDate weekStart;
     private LocalDate weekEnd;
     private int userId = 0;
     private int yearId;
-
 
     public GetSGODiary(LocalDate weekStart, LocalDate weekEnd, int yearId) {
         this.weekStart = weekStart;
@@ -106,7 +95,8 @@ public class GetSGODiary extends SGORequest<SGODiary> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<SGODiary>(){}.getType();
+    public TypeToken<SGODiary> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

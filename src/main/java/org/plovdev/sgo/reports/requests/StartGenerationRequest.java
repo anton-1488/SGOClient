@@ -2,12 +2,12 @@ package org.plovdev.sgo.reports.requests;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 import org.plovdev.sgo.reports.SGOReportType;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -94,13 +94,13 @@ public class StartGenerationRequest extends SGORequest<Void> {
     public Map<String, String> headers() {
         Map<String, String> headers = new HashMap<>();
         headers.put("Accept", "*/*");
-        headers.put("X-SignalR-User-Agent",
-                "Microsoft SignalR/5.0 (5.0.11; Unknown OS; Browser; Unknown Runtime Version)");
+        headers.put("X-SignalR-User-Agent", "Microsoft SignalR/5.0 (5.0.11; Unknown OS; Browser; Unknown Runtime Version)");
         return headers;
     }
 
     @Override
-    public Type responseType() {
-        return Void.class;
+    public TypeToken<Void> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

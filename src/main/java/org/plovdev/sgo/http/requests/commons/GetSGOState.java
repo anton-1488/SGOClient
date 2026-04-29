@@ -6,7 +6,6 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 public class GetSGOState extends SGORequest<SGOState> {
@@ -36,7 +35,8 @@ public class GetSGOState extends SGORequest<SGOState> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<SGOState>(){}.getType();
+    public TypeToken<SGOState> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

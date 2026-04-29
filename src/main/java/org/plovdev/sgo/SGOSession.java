@@ -5,27 +5,14 @@ import org.plovdev.sgo.dto.SGOLogin;
 import org.plovdev.sgo.dto.SGOLoginData;
 
 public class SGOSession {
-    private String cookie;
     private SGOLoginData loginData;
     private SGOLogin sgoLogin;
     private SGOContext sgoContext;
 
-    public SGOSession(String cookie, SGOLoginData loginData, SGOLogin sgoLogin, SGOContext context) {
-        this.cookie = cookie;
+    public SGOSession(SGOLoginData loginData, SGOLogin sgoLogin, SGOContext context) {
         this.loginData = loginData;
         this.sgoLogin = sgoLogin;
         sgoContext = context;
-    }
-
-    public SGOSession() {
-    }
-
-    public String getCookie() {
-        return cookie;
-    }
-
-    public void setCookie(String cookie) {
-        this.cookie = cookie;
     }
 
     public SGOLoginData getLoginData() {
@@ -55,7 +42,6 @@ public class SGOSession {
     @Override
     public String toString() {
         return "SGOSession{" +
-                "cookie='" + cookie + '\'' +
                 ", loginData=" + loginData +
                 ", sgoLogin=" + sgoLogin +
                 ", sgoContext=" + sgoContext +

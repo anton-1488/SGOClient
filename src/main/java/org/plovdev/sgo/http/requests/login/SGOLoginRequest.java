@@ -1,6 +1,5 @@
 package org.plovdev.sgo.http.requests.login;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.plovdev.sgo.dto.SGOLogin;
 import org.plovdev.sgo.dto.SGOSchool;
@@ -8,16 +7,13 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
-import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SGOLoginRequest extends SGORequest<SGOLogin> {
-    private final Gson gson = new Gson();
-
-    private int loginType = 1;
+    private int loginType;
     private String acrValues = "{\"back\":\"1\"}";
     private String username;
     private String password;
@@ -25,12 +21,16 @@ public class SGOLoginRequest extends SGORequest<SGOLogin> {
     private String ver;
     private SGOSchool SGOSchool;
 
-    public SGOLoginRequest(String username, String pw, String lt, String ver, SGOSchool SGOSchool) {
+    public SGOLoginRequest(int loginType, String username, String password, String lt, String ver, SGOSchool SGOSchool) {
+        this.loginType = loginType;
         this.username = username;
-        this.password = pw;
+        this.password = password;
         this.lt = lt;
         this.ver = ver;
         this.SGOSchool = SGOSchool;
+    }
+
+    public SGOLoginRequest() {
     }
 
     public String getAcrValues() {
@@ -101,21 +101,16 @@ public class SGOLoginRequest extends SGORequest<SGOLogin> {
 
     @Override
     public String params() {
-        try {
-            // Формируем строку как в form-data
-            return String.format(
-                    "acr_values=%s&loginType=%d&lt=%s&pw2=%s&scid=%d&un=%s&ver=%s",
-                    URLEncoder.encode(acrValues, StandardCharsets.UTF_8),
-                    loginType,
-                    lt,
-                    password,
-                    SGOSchool.getId(),
-                    URLEncoder.encode(username, StandardCharsets.UTF_8),
-                    ver
-            );
-        } catch (Exception e) {
-            throw new RuntimeException("Ошибка кодирования параметров", e);
-        }
+        return String.format(
+                "acr_values=%s&loginType=%d&lt=%s&pw2=%s&scid=%d&un=%s&ver=%s",
+                URLEncoder.encode(acrValues, StandardCharsets.UTF_8),
+                loginType,
+                lt,
+                password,
+                SGOSchool.getId(),
+                URLEncoder.encode(username, StandardCharsets.UTF_8),
+                ver
+        );
     }
 
     @Override
@@ -133,7 +128,8 @@ public class SGOLoginRequest extends SGORequest<SGOLogin> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<SGOLogin>(){}.getType();
+    public TypeToken<SGOLogin> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

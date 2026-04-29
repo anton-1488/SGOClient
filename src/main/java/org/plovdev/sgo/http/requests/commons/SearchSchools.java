@@ -6,7 +6,6 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
-import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -81,7 +80,8 @@ public class SearchSchools extends SGORequest<List<SGOSchool>> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<List<SGOSchool>>(){}.getType();
+    public TypeToken<List<SGOSchool>> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

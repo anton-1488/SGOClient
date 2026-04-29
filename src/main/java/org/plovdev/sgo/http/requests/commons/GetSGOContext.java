@@ -6,7 +6,6 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 public class GetSGOContext extends SGORequest<SGOContext> {
@@ -36,7 +35,8 @@ public class GetSGOContext extends SGORequest<SGOContext> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<SGOContext>(){}.getType();
+    public TypeToken<SGOContext> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

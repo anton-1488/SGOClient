@@ -3,14 +3,14 @@ package org.plovdev.sgo.reports.requests;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import org.jspecify.annotations.NonNull;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
+import org.plovdev.sgo.reports.SGOReportOutputType;
 import org.plovdev.sgo.reports.dto.ReportFilter;
 import org.plovdev.sgo.reports.dto.SGOReportQueue;
-import org.plovdev.sgo.utils.Pair;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
@@ -18,14 +18,24 @@ import static org.plovdev.sgo.utils.Globals.GSON;
 
 public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
     public List<ReportFilter> filters;
-    private List<Pair> params;
+    private Map<String, Object> params;
+    private SGOReportOutputType outputType;
 
-    public CreateSGOReportQueue(List<ReportFilter> filters, List<Pair> params) {
+    public CreateSGOReportQueue(List<ReportFilter> filters, Map<String, Object> params, SGOReportOutputType outputType) {
         this.filters = filters;
         this.params = params;
+        this.outputType = outputType;
     }
 
     public CreateSGOReportQueue() {
+    }
+
+    public SGOReportOutputType getOutputType() {
+        return outputType;
+    }
+
+    public void setOutputType(SGOReportOutputType outputType) {
+        this.outputType = outputType;
     }
 
     public List<ReportFilter> getFilters() {
@@ -36,11 +46,11 @@ public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
         this.filters = filters;
     }
 
-    public List<Pair> getParams() {
+    public Map<String, Object> getParams() {
         return params;
     }
 
-    public void setParams(List<Pair> params) {
+    public void setParams(Map<String, Object> params) {
         this.params = params;
     }
 
@@ -51,7 +61,11 @@ public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.REPORT_QUEUE;
+        String output = "";
+        if (outputType == SGOReportOutputType.PDF) {
+            output = "?output=Pdf";
+        }
+        return SGOHttpPath.REPORT_QUEUE + output;
     }
 
     @Override
@@ -61,7 +75,7 @@ public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
 
     @Override
     public String contentType() {
-        return "application/json; charset=utf-8";
+        return "application/json;charset=UTF-8";
     }
 
     @Override
@@ -70,14 +84,14 @@ public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<SGOReportQueue>(){}.getType();
+    public TypeToken<SGOReportQueue> responseType() {
+        return new TypeToken<>() {
+        };
     }
 
-    private JsonObject preparePayload() {
+    private @NonNull JsonObject preparePayload() {
         JsonObject payload = new JsonObject();
 
-        // 1. selectedData (массив фильтров)
         JsonArray selectedData = new JsonArray();
         if (filters != null) {
             for (ReportFilter filter : filters) {
@@ -90,14 +104,13 @@ public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
         }
         payload.add("selectedData", selectedData);
 
-        // 2. params (дополнительные параметры)
         JsonArray paramsArray = new JsonArray();
         if (params != null) {
-            for (Pair pair : params) {
+            for (String param : params.keySet()) {
                 JsonObject paramObj = new JsonObject();
-                paramObj.addProperty("name", pair.getName());
+                paramObj.addProperty("name", param);
 
-                Object value = pair.getValue();
+                Object value = params.get(param);
                 if (value instanceof Number) {
                     paramObj.addProperty("value", (Number) value);
                 } else if (value instanceof Boolean) {

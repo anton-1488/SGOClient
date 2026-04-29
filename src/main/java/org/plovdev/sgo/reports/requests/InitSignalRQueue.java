@@ -1,18 +1,21 @@
 package org.plovdev.sgo.reports.requests;
 
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 import org.plovdev.sgo.reports.dto.SGOReportQueue;
+import org.plovdev.sgo.utils.Globals;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
 public class InitSignalRQueue extends SGORequest<SGOReportQueue> {
     private String at;
     private String connectionId;
+    private static final String protocol = "json";
+    private static final int version = 1;
 
     public InitSignalRQueue(String at, String connectionId) {
         this.at = at;
@@ -45,7 +48,10 @@ public class InitSignalRQueue extends SGORequest<SGOReportQueue> {
 
     @Override
     public String params() {
-        return "{\"protocol\":\"json\",\"version\":1}\u001E";
+        JsonObject payload = new JsonObject();
+        payload.addProperty("protocol", protocol);
+        payload.addProperty("version", version);
+        return Globals.GSON.toJson(payload) + "\u001E";
     }
 
     @Override
@@ -55,20 +61,20 @@ public class InitSignalRQueue extends SGORequest<SGOReportQueue> {
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.REPORT_TASK + "?at=" + getAt() + "&id=" + getConnectionId();
+        return SGOHttpPath.REPORT_TASK + "?at=" + getAt() + "&id=" + connectionId;
     }
 
     @Override
     public Map<String, String> headers() {
         Map<String, String> headers = new HashMap<>();
         headers.put("Accept", "*/*");
-        headers.put("X-SignalR-User-Agent",
-                "Microsoft SignalR/5.0 (5.0.11; Unknown OS; Browser; Unknown Runtime Version)");
+        headers.put("X-SignalR-User-Agent", "Microsoft SignalR/5.0 (5.0.11; Unknown OS; Browser; Unknown Runtime Version)");
         return headers;
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<SGOReportQueue>(){}.getType();
+    public TypeToken<SGOReportQueue> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

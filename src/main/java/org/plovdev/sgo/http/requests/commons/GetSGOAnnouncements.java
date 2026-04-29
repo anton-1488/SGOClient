@@ -6,7 +6,6 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +53,8 @@ public class GetSGOAnnouncements extends SGORequest<List<SGOAnnouncement>> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<List<SGOAnnouncement>>(){}.getType();
+    public TypeToken<List<SGOAnnouncement>> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

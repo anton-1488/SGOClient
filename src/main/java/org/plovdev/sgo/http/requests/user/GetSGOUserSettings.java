@@ -6,7 +6,6 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 public class GetSGOUserSettings extends SGORequest<SGOUserSettings> {
@@ -53,7 +52,8 @@ public class GetSGOUserSettings extends SGORequest<SGOUserSettings> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<SGOUserSettings>(){}.getType();
+    public TypeToken<SGOUserSettings> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

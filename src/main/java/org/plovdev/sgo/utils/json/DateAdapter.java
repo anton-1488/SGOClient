@@ -1,12 +1,12 @@
 package org.plovdev.sgo.utils.json;
 
 import com.google.gson.*;
+
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class DateAdapter implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {
-
     private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     @Override
@@ -15,8 +15,7 @@ public class DateAdapter implements JsonSerializer<LocalDate>, JsonDeserializer<
     }
 
     @Override
-    public LocalDate deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-            throws JsonParseException {
+    public LocalDate deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         return LocalDate.parse(json.getAsString(), formatter);
     }
 }

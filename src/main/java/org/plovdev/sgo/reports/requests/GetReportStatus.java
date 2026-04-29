@@ -6,7 +6,6 @@ import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 import org.plovdev.sgo.reports.dto.ReportStatus;
 
-import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.ZoneId;
@@ -76,7 +75,8 @@ public class GetReportStatus extends SGORequest<ReportStatus> {
     }
 
     @Override
-    public Type responseType() {
-        return new TypeToken<ReportStatus>(){}.getType();
+    public TypeToken<ReportStatus> responseType() {
+        return new TypeToken<>() {
+        };
     }
 }

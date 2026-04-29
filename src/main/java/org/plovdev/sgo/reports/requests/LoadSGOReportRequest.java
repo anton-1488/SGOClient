@@ -1,22 +1,38 @@
-package org.plovdev.sgo.http.requests.login;
+package org.plovdev.sgo.reports.requests;
 
 import com.google.gson.reflect.TypeToken;
-import org.plovdev.sgo.dto.SGOLoginData;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 
 import java.util.Map;
 
-public class GetSGOLoginData extends SGORequest<SGOLoginData> {
+public class LoadSGOReportRequest extends SGORequest<byte[]> {
+    private String fileId;
+
+    public LoadSGOReportRequest(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public LoadSGOReportRequest() {
+    }
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
     @Override
     public HttpMethod method() {
-        return HttpMethod.POST;
+        return HttpMethod.GET;
     }
 
     @Override
     public String endpoint() {
-        return SGOHttpPath.LOGIN_DATA;
+        return SGOHttpPath.FILES + fileId;
     }
 
     @Override
@@ -26,7 +42,7 @@ public class GetSGOLoginData extends SGORequest<SGOLoginData> {
 
     @Override
     public String contentType() {
-        return "application/json";
+        return "*/*";
     }
 
     @Override
@@ -35,7 +51,7 @@ public class GetSGOLoginData extends SGORequest<SGOLoginData> {
     }
 
     @Override
-    public TypeToken<SGOLoginData> responseType() {
+    public TypeToken<byte[]> responseType() {
         return new TypeToken<>() {
         };
     }
