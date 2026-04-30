@@ -11,7 +11,7 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        try (SGOClient client = new SGOClient(new AuthKeys("ПавловАА157", "1431190s"))) {
+        try (SGOClient client = new SGOClient(AuthKeys.load("MY_NAME", "MY_PASS"))) {
             client.createSession(Schools.MAOU6);
 
             SGOReportCreator creator = new SGOReportCreator(client);
