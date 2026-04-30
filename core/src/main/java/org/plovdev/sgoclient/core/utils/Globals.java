@@ -4,16 +4,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.Strictness;
 import okhttp3.OkHttpClient;
-import org.plovdev.sgoclient.core.SGOSession;
 import org.plovdev.sgoclient.core.http.CookieStore;
 import org.plovdev.sgoclient.core.utils.json.DateAdapter;
 import org.plovdev.sgoclient.core.utils.json.DateTimeAdapter;
 import org.plovdev.sgoclient.core.utils.json.TimeAdapter;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
@@ -36,14 +32,8 @@ public final class Globals {
             .cookieJar(new CookieStore())
             .build();
 
-    private static SGOSession currentSession = null;
-
-    public static SGOSession getCurrentSession() {
-        return currentSession;
-    }
-
-    public static void setCurrentSession(SGOSession currentSession) {
-        Globals.currentSession = currentSession;
+    public static int getCurrentTimeZoneOffset() {
+        return OffsetDateTime.now().getOffset().getTotalSeconds() / 3600;
     }
 
     private static final List<Runnable> HOOKS = new CopyOnWriteArrayList<>();

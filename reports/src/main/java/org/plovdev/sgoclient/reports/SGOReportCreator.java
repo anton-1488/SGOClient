@@ -4,8 +4,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.jspecify.annotations.NonNull;
 import org.plovdev.sgoclient.core.SGOClient;
+import org.plovdev.sgoclient.core.SGOSession;
+import org.plovdev.sgoclient.core.dto.SGOContext;
 import org.plovdev.sgoclient.core.exceptions.ReportGenerationException;
 import org.plovdev.sgoclient.core.reports.dto.SGOReport;
+import org.plovdev.sgoclient.core.reports.requests.LoadSGOReportRequest;
 import org.plovdev.sgoclient.core.utils.Globals;
 import org.plovdev.sgoclient.core.ws.SGOWebSocketClient;
 import org.plovdev.sgoclient.core.ws.WebSocketListenerAdapter;
@@ -17,20 +20,19 @@ import org.plovdev.sgoclient.reports.listeners.ReportCreatingProgressListener;
 import org.plovdev.sgoclient.reports.listeners.ReportTargetStatus;
 import org.plovdev.sgoclient.reports.requests.CreateSGOReportQueue;
 import org.plovdev.sgoclient.reports.requests.InitSignalRQueue;
-import org.plovdev.sgoclient.core.reports.requests.LoadSGOReportRequest;
 import org.plovdev.sgoclient.reports.requests.ws.SGONegotinateRequest;
 import org.plovdev.sgoclient.reports.requests.ws.SGOSubmitReportTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 public class SGOReportCreator {
     private static final Logger log = LoggerFactory.getLogger(SGOReportCreator.class);
+    private static final String REPORT_DATE_FORMAT = "d\u0001mm\u0001yy\u0001.";
+
     private final SGOClient client;
     private volatile ReportCreatingProgressListener progressListener = new ReportCreatingProgressListener() {
         @Override
@@ -78,7 +80,7 @@ public class SGOReportCreator {
         log.debug("Start creating report");
         CompletableFuture<SGOReport> reportFuture = new CompletableFuture<>();
         SGOWebSocketClient wsClient = client.createSGOWebSocketClient();
-        wsClient.connect(new SGONegotinateRequest(), new WebSocketListenerAdapter() {
+        wsClient.connect(new SGONegotinateRequest(client.getCurrentSession().getSgoLogin().getAt()), new WebSocketListenerAdapter() {
             @Override
             public void onMessage(String message) {
                 if (message.equals("{}")) return;
@@ -115,7 +117,7 @@ public class SGOReportCreator {
 
         try {
             wsClient.execute(new InitSignalRQueue());
-            SGOReportQueue queue = client.execute(new CreateSGOReportQueue(reportRequest.getReportFilters(), reportRequest.getParams(), reportRequest.getReportType(), reportRequest.getOutputType()));
+            SGOReportQueue queue = client.execute(new CreateSGOReportQueue(reportRequest.getReportFilters(), getParams(client), reportRequest.getReportType(), reportRequest.getOutputType()));
             log.debug("Report queue: {}", queue);
             wsClient.execute(new SGOSubmitReportTask(queue.getTaskId()));
         } catch (Exception e) {
@@ -142,5 +144,18 @@ public class SGOReportCreator {
         ReportCreated created = Globals.GSON.fromJson(arg, ReportCreated.class);
         progressListener.onCreated(created);
         return created;
+    }
+
+    private @NonNull Map<String, Object> getParams(@NonNull SGOClient client) {
+        SGOSession session = client.getCurrentSession();
+        SGOContext context = session.getSgoContext();
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("SCHOOLYEARID", context.getYearId());
+        params.put("SERVERTIMEZONE", Globals.getCurrentTimeZoneOffset());
+        params.put("FULLSCHOOLNAME", context.getOrgName());
+        params.put("DATEFORMAT", REPORT_DATE_FORMAT);
+
+        return params;
     }
 }

@@ -1,12 +1,9 @@
 package org.plovdev.sgoclient.reports.requests.ws;
 
 import com.google.gson.reflect.TypeToken;
-import org.plovdev.sgoclient.core.SGOSession;
-import org.plovdev.sgoclient.core.dto.SGOLogin;
 import org.plovdev.sgoclient.core.http.HttpMethod;
 import org.plovdev.sgoclient.core.http.SGOHttpPath;
 import org.plovdev.sgoclient.core.http.requests.SGORequest;
-import org.plovdev.sgoclient.core.utils.Globals;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,11 +16,6 @@ public class SGONegotinateRequest extends SGORequest<Void> {
     }
 
     public SGONegotinateRequest() {
-        SGOSession curr = Globals.getCurrentSession();
-        if (curr != null) {
-            SGOLogin login = curr.getSgoLogin();
-            at = login.getAt();
-        }
     }
 
     public String getAt() {

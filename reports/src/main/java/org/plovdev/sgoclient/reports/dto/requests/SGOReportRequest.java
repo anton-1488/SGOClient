@@ -8,7 +8,6 @@ import org.plovdev.sgoclient.reports.dto.ReportFilter;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 public class SGOReportRequest implements Serializable {
     @Serial
@@ -23,14 +22,10 @@ public class SGOReportRequest implements Serializable {
     @SerializedName("reportFilters")
     private List<ReportFilter> reportFilters;
 
-    @SerializedName("params")
-    private Map<String, Object> params;
-
-    public SGOReportRequest(SGOReportType reportType, SGOReportOutputType outputType, List<ReportFilter> reportFilters, Map<String, Object> params) {
+    public SGOReportRequest(SGOReportType reportType, SGOReportOutputType outputType, List<ReportFilter> reportFilters) {
         this.reportType = reportType;
         this.outputType = outputType;
         this.reportFilters = reportFilters;
-        this.params = params;
     }
 
     public SGOReportRequest() {
@@ -42,14 +37,6 @@ public class SGOReportRequest implements Serializable {
 
     public void setReportFilters(List<ReportFilter> reportFilters) {
         this.reportFilters = reportFilters;
-    }
-
-    public Map<String, Object> getParams() {
-        return params;
-    }
-
-    public void setParams(Map<String, Object> params) {
-        this.params = params;
     }
 
     public SGOReportType getReportType() {

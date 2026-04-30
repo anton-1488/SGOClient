@@ -5,10 +5,13 @@ import org.plovdev.sgoclient.core.reports.SGOReportType;
 import org.plovdev.sgoclient.reports.dto.ReportFilter;
 
 import java.util.List;
-import java.util.Map;
 
 public class StudentTotalReportRequest extends SGOReportRequest {
-    public StudentTotalReportRequest(SGOReportOutputType outputType, List<ReportFilter> reportFilters, Map<String, Object> params) {
-        super(SGOReportType.STUDENT_TOTAL, outputType, reportFilters, params);
+    public StudentTotalReportRequest(SGOReportOutputType outputType, ReportFilter userFilter, ReportFilter classFilter, ReportFilter termFilter, ReportFilter periodFilter) {
+        super(SGOReportType.STUDENT_TOTAL, outputType, List.of(userFilter, classFilter, termFilter, periodFilter));
+    }
+
+    public StudentTotalReportRequest(ReportFilter userFilter, ReportFilter classFilter, ReportFilter termFilter, ReportFilter periodFilter) {
+        super(SGOReportType.STUDENT_TOTAL, SGOReportOutputType.HTML, List.of(userFilter, classFilter, termFilter, periodFilter));
     }
 }

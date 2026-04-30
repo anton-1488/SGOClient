@@ -68,18 +68,18 @@ public class SGOClient implements AutoCloseable {
         SGOContext sgoContext = execute(new GetSGOContext());
         currentSession.setSgoContext(sgoContext);
         refresher.startRefreshLoop(authKeys, school, role);
-        Globals.setCurrentSession(currentSession);
 
         return currentSession;
     }
 
     public <T> T execute(SGORequest<?> request) {
         try (Response response = HTTP_CLIENT.newCall(buildRequest(request)).execute()) {
+            String body = response.body().string();
+
             if (response.isSuccessful()) {
-                return GSON.fromJson(response.body().string(), request.responseType().getType());
+                return GSON.fromJson(body, request.responseType().getType());
             } else {
-                String errorBody = response.body().string();
-                throw new SGORequestException("HTTP " + response.code() + ": " + errorBody);
+                throw new SGORequestException("HTTP " + response.code() + ": " + body);
             }
         } catch (IOException e) {
             throw new SGOCleintException(e);
@@ -88,14 +88,15 @@ public class SGOClient implements AutoCloseable {
 
     public SGOReport loadReport(LoadSGOReportRequest request) {
         try (Response response = HTTP_CLIENT.newCall(buildRequest(request)).execute()) {
+            ResponseBody body = response.body();
             if (response.isSuccessful()) {
-                byte[] data = response.body().bytes();
+                byte[] data = body.bytes();
                 return new SGOReport(data);
             } else {
-                throw new RuntimeException("HTTP " + response.code() + ": " + response.body().string());
+                throw new SGORequestException("HTTP " + response.code() + ": " + body.string());
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new SGOCleintException(e);
         }
     }
 
@@ -157,7 +158,6 @@ public class SGOClient implements AutoCloseable {
         refresher.stopRefreshLoop();
         execute(new SGOLogoutRequest(currentSession.getSgoLogin().getAt(), currentSession.getLoginData().getVer()));
         currentSession = null;
-        Globals.setCurrentSession(null);
 
         log.info("Session logouted");
     }
