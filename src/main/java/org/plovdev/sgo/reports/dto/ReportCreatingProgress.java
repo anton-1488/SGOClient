@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Optional;
 
 public class ReportCreatingProgress implements Serializable {
     @Serial
@@ -36,16 +35,16 @@ public class ReportCreatingProgress implements Serializable {
         this.taskId = taskId;
     }
 
-    public Optional<String> getStatus() {
-        return Optional.ofNullable(status);
+    public String getStatus() {
+        return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
 
-    public Optional<String> getDetails() {
-        return Optional.ofNullable(details);
+    public String getDetails() {
+        return details;
     }
 
     public void setDetails(String details) {

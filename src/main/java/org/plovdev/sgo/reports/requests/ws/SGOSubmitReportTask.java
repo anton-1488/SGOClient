@@ -103,7 +103,7 @@ public class SGOSubmitReportTask extends SGORequest<Void> {
     }
 
     @Override
-    public TypeToken<?> responseType() {
+    public TypeToken<Void> responseType() {
         return new TypeToken<>() {
         };
     }

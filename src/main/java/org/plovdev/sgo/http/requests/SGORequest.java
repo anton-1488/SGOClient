@@ -43,5 +43,5 @@ public abstract class SGORequest<T> {
 
     public abstract Map<String, String> headers();
 
-    public abstract TypeToken<?> responseType();
+    public abstract TypeToken<T> responseType();
 }

@@ -6,6 +6,8 @@ import org.plovdev.sgo.dto.SGOContext;
 import org.plovdev.sgo.dto.SGOLogin;
 import org.plovdev.sgo.dto.SGOLoginData;
 import org.plovdev.sgo.dto.SGOSchool;
+import org.plovdev.sgo.exceptions.SGOCleintException;
+import org.plovdev.sgo.exceptions.SGORequestException;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
@@ -80,10 +82,10 @@ public class SGOClient implements AutoCloseable {
                 return GSON.fromJson(response.body().string(), request.responseType().getType());
             } else {
                 String errorBody = response.body().string();
-                throw new RuntimeException("HTTP " + response.code() + ": " + errorBody);
+                throw new SGORequestException("HTTP " + response.code() + ": " + errorBody);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new SGOCleintException(e);
         }
     }
 

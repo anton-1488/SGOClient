@@ -3,11 +3,8 @@ package org.plovdev.sgo.utils;
 import org.plovdev.sgo.ClientRole;
 import org.plovdev.sgo.SGOClient;
 import org.plovdev.sgo.SGOSession;
-import org.plovdev.sgo.dto.SGOContext;
-import org.plovdev.sgo.dto.SGOLogin;
 import org.plovdev.sgo.dto.SGOLoginData;
 import org.plovdev.sgo.dto.SGOSchool;
-import org.plovdev.sgo.http.requests.commons.GetSGOContext;
 import org.plovdev.sgo.http.requests.login.GetSGOLoginData;
 import org.plovdev.sgo.http.requests.login.SGOLoginRequest;
 import org.plovdev.sgo.security.AuthKeys;
@@ -21,7 +18,12 @@ import java.util.concurrent.TimeUnit;
 
 public class SGOSessionRefresher {
     private static final Logger log = LoggerFactory.getLogger(SGOSessionRefresher.class);
-    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(r -> {
+        Thread thread = new Thread(r);
+        thread.setDaemon(true);
+        return thread;
+    });
+
     private final SGOClient client;
     private volatile boolean running = false;
 
@@ -37,22 +39,16 @@ public class SGOSessionRefresher {
         long refreshDelay = client.getCurrentSession().getSgoLogin().getTimeOut();
         scheduler.scheduleWithFixedDelay(() -> {
             try {
-                System.out.println("Refresh loop is working!");
                 SGOLoginData loginData = client.execute(new GetSGOLoginData());
                 SGOLoginRequest sgoLoginRequest = new SGOLoginRequest(role.getRole(), authKeys.username(), HashUtils.createPassword(loginData.getSalt(), authKeys.password()), loginData.getLt(), loginData.getVer(), school);
-                SGOLogin sgoLogin = client.execute(sgoLoginRequest);
 
                 SGOSession currentSession = client.getCurrentSession();
-                SGOContext sgoContext = client.execute(new GetSGOContext());
-
                 currentSession.setLoginData(loginData);
-                currentSession.setSgoLogin(sgoLogin);
-                currentSession.setSgoContext(sgoContext);
+                currentSession.setSgoLogin(client.execute(sgoLoginRequest));
             } catch (Exception e) {
                 log.error("Error while refresh session: ", e);
             }
-        }, refreshDelay, refreshDelay, TimeUnit.MICROSECONDS);
-
+        }, refreshDelay, refreshDelay, TimeUnit.MILLISECONDS);
         running = true;
     }
 

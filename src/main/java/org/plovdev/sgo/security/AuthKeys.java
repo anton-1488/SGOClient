@@ -9,4 +9,9 @@ public record AuthKeys(String username, String password) {
     public static @NonNull AuthKeys load(String usernameKey, String passwordKey) {
         return new AuthKeys(EnvReader.getEnv(usernameKey), EnvReader.getEnv(passwordKey));
     }
+
+    @Override
+    public @NonNull String toString() {
+        return String.format("AuthKeys: [username: %s, password: %s]", username, "*".repeat(password.length()));
+    }
 }

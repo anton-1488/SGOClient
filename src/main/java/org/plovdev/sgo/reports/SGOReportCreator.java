@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.jspecify.annotations.NonNull;
 import org.plovdev.sgo.SGOClient;
+import org.plovdev.sgo.exceptions.ReportGenerationException;
 import org.plovdev.sgo.reports.dto.*;
 import org.plovdev.sgo.reports.listeners.ReportCreatingProgressListener;
 import org.plovdev.sgo.reports.listeners.ReportTargetStatus;
@@ -18,6 +19,8 @@ import org.plovdev.sgo.ws.WebSocketListenerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 public class SGOReportCreator {
     private static final Logger log = LoggerFactory.getLogger(SGOReportCreator.class);
     private final SGOClient client;
-    private ReportCreatingProgressListener progressListener = new ReportCreatingProgressListener() {
+    private volatile ReportCreatingProgressListener progressListener = new ReportCreatingProgressListener() {
         @Override
         public void onProgress(ReportCreatingProgress progress) {
             log.debug("Report creating progress: {}", progress);
@@ -50,14 +53,26 @@ public class SGOReportCreator {
         return progressListener;
     }
 
-    public void setProgressListener(ReportCreatingProgressListener progressListener) {
+    public synchronized void setProgressListener(ReportCreatingProgressListener progressListener) {
         this.progressListener = Objects.requireNonNull(progressListener);
     }
 
-    public synchronized SGOReport createReport(@NonNull SGOReportRequest reportRequest) {
+    public SGOReport createReport(@NonNull SGOReportRequest reportRequest) {
+        try {
+            CompletableFuture<SGOReport> reportFuture = createReportAsync(reportRequest);
+            return reportFuture.get(60, TimeUnit.SECONDS);
+        } catch (Exception e) {
+            throw new ReportGenerationException("Report generation failed: ", e);
+        }
+    }
+
+    public List<CompletableFuture<SGOReport>> createReportsAsync(SGOReportRequest... reportRequests) {
+        return Arrays.stream(reportRequests).map(this::createReportAsync).toList();
+    }
+
+    public CompletableFuture<SGOReport> createReportAsync(@NonNull SGOReportRequest reportRequest) {
         log.debug("Start creating report");
         CompletableFuture<SGOReport> reportFuture = new CompletableFuture<>();
-
         SGOWebSocketClient wsClient = client.createSGOWebSocketClient();
         wsClient.connect(new SGONegotinateRequest(), new WebSocketListenerAdapter() {
             @Override
@@ -77,26 +92,33 @@ public class SGOReportCreator {
                         SGOReport report = client.loadReport(new LoadSGOReportRequest(created.getData()));
                         report.setReportType(reportRequest.getReportType());
                         report.setOutputType(reportRequest.getOutputType());
+                        wsClient.close();
                         reportFuture.complete(report);
                     } else if (status == ReportTargetStatus.error) {
-                        proccessErrorTarget(args);
+                        ReportCreatingProgress progress = proccessErrorTarget(args);
+                        wsClient.close();
+                        reportFuture.completeExceptionally(new ReportGenerationException(progress.getDetails()));
                     }
                 }
             }
+
+            @Override
+            public void onFailure(Throwable t) {
+                reportFuture.completeExceptionally(new ReportGenerationException(t));
+                wsClient.close();
+            }
         });
 
-        wsClient.execute(new InitSignalRQueue());
-        SGOReportQueue queue = client.execute(new CreateSGOReportQueue(reportRequest.getReportFilters(), reportRequest.getParams(), reportRequest.getReportType(), reportRequest.getOutputType()));
-        log.debug("Report queue: {}", queue);
-        wsClient.execute(new SGOSubmitReportTask(queue.getTaskId()));
-
         try {
-            return reportFuture.get(60, TimeUnit.SECONDS);
+            wsClient.execute(new InitSignalRQueue());
+            SGOReportQueue queue = client.execute(new CreateSGOReportQueue(reportRequest.getReportFilters(), reportRequest.getParams(), reportRequest.getReportType(), reportRequest.getOutputType()));
+            log.debug("Report queue: {}", queue);
+            wsClient.execute(new SGOSubmitReportTask(queue.getTaskId()));
         } catch (Exception e) {
-            throw new RuntimeException("Failed to get report", e);
-        } finally {
             wsClient.close();
+            reportFuture.completeExceptionally(e);
         }
+        return reportFuture;
     }
 
     private void proccessProgressTarget(@NonNull JsonArray args) {
@@ -104,9 +126,11 @@ public class SGOReportCreator {
         progressListener.onProgress(Globals.GSON.fromJson(arg, ReportCreatingProgress.class));
     }
 
-    private void proccessErrorTarget(@NonNull JsonArray args) {
+    private ReportCreatingProgress proccessErrorTarget(@NonNull JsonArray args) {
         JsonObject arg = args.get(0).getAsJsonObject();
-        progressListener.onError(Globals.GSON.fromJson(arg, ReportCreatingProgress.class));
+        ReportCreatingProgress progress = Globals.GSON.fromJson(arg, ReportCreatingProgress.class);
+        progressListener.onError(progress);
+        return progress;
     }
 
     private ReportCreated proccessCompleteTarget(@NonNull JsonArray args) {
