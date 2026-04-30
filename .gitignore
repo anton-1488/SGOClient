@@ -9,7 +9,10 @@
 *.ipr
 
 **/.env
-/src/main/resources/.env
+/example/src/main/resources/.env
+
+/src
+/src/**
 
 .mvn/
 target/

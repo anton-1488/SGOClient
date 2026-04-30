@@ -1,0 +1,22 @@
+package org.plovdev.sgoclient.core.utils.json;
+
+import com.google.gson.*;
+import org.jspecify.annotations.NonNull;
+
+import java.lang.reflect.Type;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class DateTimeAdapter implements JsonSerializer<LocalDateTime>, JsonDeserializer<LocalDateTime> {
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+
+    @Override
+    public JsonElement serialize(LocalDateTime src, Type typeOfSrc, JsonSerializationContext context) {
+        return new JsonPrimitive(formatter.format(src));
+    }
+
+    @Override
+    public LocalDateTime deserialize(@NonNull JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        return LocalDateTime.parse(json.getAsString(), formatter);
+    }
+}

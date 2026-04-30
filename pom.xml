@@ -4,9 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.anton-1488</groupId>
-    <artifactId>sgo-client</artifactId>
-    <version>2.0.3</version>
+    <groupId>io.github.anton-1488.sgo-client</groupId>
+    <artifactId>sgo-client-root</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
     <name>SGOClient</name>
     <description>Java SGOClient for sgo.volganet closed api.</description>
     <url>https://github.com/anton-1488/SGOClient</url>
@@ -26,6 +27,13 @@
         </developer>
     </developers>
 
+    <modules>
+        <module>core</module>
+        <module>example</module>
+        <module>tools</module>
+        <module>reports</module>
+    </modules>
+
     <scm>
         <connection>scm:git:git://://github.com</connection>
         <developerConnection>scm:git:ssh://github.com:anton-1488/SGOClient.git</developerConnection>
@@ -33,6 +41,7 @@
     </scm>
 
     <properties>
+        <revision>2.5</revision>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,11 +83,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
 
