@@ -150,7 +150,7 @@ public class SGOClient implements AutoCloseable {
     }
 
     public SGOWebSocketClient createSGOWebSocketClient() {
-        return new SGOWebSocketClient(HTTP_CLIENT, currentSession);
+        return new SGOWebSocketClient(HTTP_CLIENT);
     }
 
     @Override

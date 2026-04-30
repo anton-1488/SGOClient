@@ -13,7 +13,7 @@ public interface SGOHttpPath {
     String CONTEXT = "webapi/context";
     String USER_SETTINGS = "webapi/usersettings";
     String SCHEDULE = "webapi/subjectgroups";
-    String REPORT_QUEUE = "webapi/reports/studenttotal/queue";
+    String REPORT_QUEUE = "webapi/reports/{report-type}/queue";
     String FILES = "webapi/files/";
     String REPORT_TASK = "signalr/queueHub";
     String NEGOTINATE = "signalr/queueHub/negotiate";

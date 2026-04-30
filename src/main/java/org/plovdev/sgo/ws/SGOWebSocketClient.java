@@ -3,7 +3,6 @@ package org.plovdev.sgo.ws;
 import okhttp3.*;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
-import org.plovdev.sgo.SGOSession;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 import org.slf4j.Logger;
@@ -16,7 +15,7 @@ public class SGOWebSocketClient implements AutoCloseable {
     private final OkHttpClient client;
     private WebSocket webSocket;
 
-    public SGOWebSocketClient(OkHttpClient client, SGOSession session) {
+    public SGOWebSocketClient(OkHttpClient client) {
         this.client = Objects.requireNonNull(client);
     }
 

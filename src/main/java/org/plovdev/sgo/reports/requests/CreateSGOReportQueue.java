@@ -8,6 +8,7 @@ import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.SGOHttpPath;
 import org.plovdev.sgo.http.requests.SGORequest;
 import org.plovdev.sgo.reports.SGOReportOutputType;
+import org.plovdev.sgo.reports.SGOReportType;
 import org.plovdev.sgo.reports.dto.ReportFilter;
 import org.plovdev.sgo.reports.dto.SGOReportQueue;
 
@@ -19,15 +20,25 @@ import static org.plovdev.sgo.utils.Globals.GSON;
 public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
     public List<ReportFilter> filters;
     private Map<String, Object> params;
+    private SGOReportType reportType;
     private SGOReportOutputType outputType;
 
-    public CreateSGOReportQueue(List<ReportFilter> filters, Map<String, Object> params, SGOReportOutputType outputType) {
+    public CreateSGOReportQueue(List<ReportFilter> filters, Map<String, Object> params, SGOReportType reportType, SGOReportOutputType outputType) {
         this.filters = filters;
         this.params = params;
+        this.reportType = reportType;
         this.outputType = outputType;
     }
 
     public CreateSGOReportQueue() {
+    }
+
+    public SGOReportType getReportType() {
+        return reportType;
+    }
+
+    public void setReportType(SGOReportType reportType) {
+        this.reportType = reportType;
     }
 
     public SGOReportOutputType getOutputType() {
@@ -65,7 +76,7 @@ public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
         if (outputType == SGOReportOutputType.PDF) {
             output = "?output=Pdf";
         }
-        return SGOHttpPath.REPORT_QUEUE + output;
+        return SGOHttpPath.REPORT_QUEUE.replace("{report-type}", reportType.getType()) + output;
     }
 
     @Override

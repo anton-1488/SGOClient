@@ -5,6 +5,8 @@ import org.plovdev.sgo.reports.dto.ReportCreatingProgress;
 
 public interface ReportCreatingProgressListener {
     void onProgress(ReportCreatingProgress progress);
+
     void onCreated(ReportCreated created);
+
     void onError(ReportCreatingProgress error);
 }

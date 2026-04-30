@@ -8,6 +8,6 @@ import java.util.Map;
 
 public class StudentTotalReportRequest extends SGOReportRequest {
     public StudentTotalReportRequest(SGOReportOutputType outputType, List<ReportFilter> reportFilters, Map<String, Object> params) {
-        super(SGOReportType.STUDENT_ATTENDANCE, outputType, reportFilters, params);
+        super(SGOReportType.STUDENT_TOTAL, outputType, reportFilters, params);
     }
 }

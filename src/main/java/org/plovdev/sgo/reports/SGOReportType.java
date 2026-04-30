@@ -1,15 +1,23 @@
 package org.plovdev.sgo.reports;
 
 public enum SGOReportType {
-    WEEKLY_PARENT("report-v1"), STUDENT_ATTENDANCE("report-v2"), FINAL_GRADES("report-v3");
+    FINAL_GRADES("studenttotalmarks"),
+    AVERAGE_MARK("studentaveragemark"),
+    AVERAGE_MARK_DYNAMIC("studentaveragemarkdyn"),
+    STUDENT_GRADES("studentgrades"),
+    STUDENT_TOTAL("studenttotal"),
+    STUDENT_TOTAL_QUALITY("studentattendancegrades"),
+    JOURNAL_ACCESS("journalaccess"),
+    PARENT_INFO("parentinfoletter"),
+    DOP_EDUCATION("dopeducstudent");
 
-    private final String name;
+    private final String type;
 
-    SGOReportType(String name) {
-        this.name = name;
+    SGOReportType(String type) {
+        this.type = type;
     }
 
-    public String getName() {
-        return name;
+    public String getType() {
+        return type;
     }
 }

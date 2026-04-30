@@ -37,6 +37,7 @@ public class SGOSessionRefresher {
         long refreshDelay = client.getCurrentSession().getSgoLogin().getTimeOut();
         scheduler.scheduleWithFixedDelay(() -> {
             try {
+                System.out.println("Refresh loop is working!");
                 SGOLoginData loginData = client.execute(new GetSGOLoginData());
                 SGOLoginRequest sgoLoginRequest = new SGOLoginRequest(role.getRole(), authKeys.username(), HashUtils.createPassword(loginData.getSalt(), authKeys.password()), loginData.getLt(), loginData.getVer(), school);
                 SGOLogin sgoLogin = client.execute(sgoLoginRequest);
@@ -50,9 +51,8 @@ public class SGOSessionRefresher {
             } catch (Exception e) {
                 log.error("Error while refresh session: ", e);
             }
-        }, refreshDelay, refreshDelay, TimeUnit.MILLISECONDS);
+        }, refreshDelay, refreshDelay, TimeUnit.MICROSECONDS);
 
-        scheduler.shutdown();
         running = true;
     }
 

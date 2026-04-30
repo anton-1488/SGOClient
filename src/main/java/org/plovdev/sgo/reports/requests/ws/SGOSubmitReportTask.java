@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.plovdev.sgo.http.HttpMethod;
 import org.plovdev.sgo.http.requests.SGORequest;
-import org.plovdev.sgo.reports.SGOReportType;
 import org.plovdev.sgo.utils.Globals;
 
 import java.util.HashMap;
@@ -13,25 +12,54 @@ import java.util.Map;
 
 public class SGOSubmitReportTask extends SGORequest<Void> {
     private int taskId;
-    private SGOReportType reportType;
     private int invocationId = 0;
     private String target = "startTaskAsync";
     private int type = 1;
 
-    public SGOSubmitReportTask(int taskId, SGOReportType reportType, int invocationId, String target, int type) {
+    public SGOSubmitReportTask(int taskId, int invocationId, String target, int type) {
         this.taskId = taskId;
-        this.reportType = reportType;
         this.invocationId = invocationId;
         this.target = target;
         this.type = type;
     }
 
-    public SGOSubmitReportTask(int taskId, SGOReportType reportType) {
+    public SGOSubmitReportTask(int taskId) {
         this.taskId = taskId;
-        this.reportType = reportType;
     }
 
     public SGOSubmitReportTask() {
+    }
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
+    }
+
+    public int getInvocationId() {
+        return invocationId;
+    }
+
+    public void setInvocationId(int invocationId) {
+        this.invocationId = invocationId;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     @Override
@@ -49,7 +77,7 @@ public class SGOSubmitReportTask extends SGORequest<Void> {
         JsonObject payload = new JsonObject();
         JsonArray args = new JsonArray();
         args.add(taskId);
-        args.add(reportType.getName());
+        args.add("report-v2");
         payload.add("arguments", args);
 
         payload.addProperty("invocationId", String.valueOf(invocationId));

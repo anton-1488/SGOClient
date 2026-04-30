@@ -86,9 +86,9 @@ public class SGOReportCreator {
         });
 
         wsClient.execute(new InitSignalRQueue());
-        SGOReportQueue queue = client.execute(new CreateSGOReportQueue(reportRequest.getReportFilters(), reportRequest.getParams(), reportRequest.getOutputType()));
+        SGOReportQueue queue = client.execute(new CreateSGOReportQueue(reportRequest.getReportFilters(), reportRequest.getParams(), reportRequest.getReportType(), reportRequest.getOutputType()));
         log.debug("Report queue: {}", queue);
-        wsClient.execute(new SGOSubmitReportTask(queue.getTaskId(), reportRequest.getReportType()));
+        wsClient.execute(new SGOSubmitReportTask(queue.getTaskId()));
 
         try {
             return reportFuture.get(60, TimeUnit.SECONDS);
