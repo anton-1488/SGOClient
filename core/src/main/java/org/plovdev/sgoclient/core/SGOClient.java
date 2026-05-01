@@ -3,17 +3,18 @@ package org.plovdev.sgoclient.core;
 import okhttp3.*;
 import org.jspecify.annotations.NonNull;
 import org.plovdev.sgoclient.core.dto.*;
-import org.plovdev.sgoclient.core.exceptions.SGOCleintException;
-import org.plovdev.sgoclient.core.exceptions.SGORequestException;
+import org.plovdev.sgoclient.exceptions.SGOCleintException;
+import org.plovdev.sgoclient.exceptions.SGORequestException;
+import org.plovdev.sgoclient.core.http.CookieStore;
 import org.plovdev.sgoclient.core.http.HttpMethod;
 import org.plovdev.sgoclient.core.http.SGOHttpPath;
-import org.plovdev.sgoclient.core.reports.requests.LoadSGOReportRequest;
+import org.plovdev.sgoclient.reports.requests.LoadSGOReportRequest;
 import org.plovdev.sgoclient.core.http.requests.SGORequest;
 import org.plovdev.sgoclient.core.http.requests.commons.GetSGOContext;
 import org.plovdev.sgoclient.core.http.requests.login.GetSGOLoginData;
 import org.plovdev.sgoclient.core.http.requests.login.SGOLoginRequest;
 import org.plovdev.sgoclient.core.http.requests.login.SGOLogoutRequest;
-import org.plovdev.sgoclient.core.reports.dto.SGOReport;
+import org.plovdev.sgoclient.reports.dto.SGOReport;
 import org.plovdev.sgoclient.core.security.AuthKeys;
 import org.plovdev.sgoclient.core.security.HashUtils;
 import org.plovdev.sgoclient.core.utils.Globals;
@@ -26,12 +27,14 @@ import java.io.IOException;
 import java.net.Proxy;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
 
 import static org.plovdev.sgoclient.core.utils.Globals.GSON;
 
 public class SGOClient implements AutoCloseable {
     private static final Logger log = LoggerFactory.getLogger(SGOClient.class);
-    private OkHttpClient HTTP_CLIENT = Globals.HTTP_CLIENT;
+    private final CookieStore cookieStore = new CookieStore();
+    private OkHttpClient HTTP_CLIENT = Globals.HTTP_CLIENT_BUILDER.cookieJar(cookieStore).build();
     private final SGOSessionRefresher refresher = new SGOSessionRefresher(this);
 
     private final AuthKeys authKeys;
@@ -90,8 +93,7 @@ public class SGOClient implements AutoCloseable {
         try (Response response = HTTP_CLIENT.newCall(buildRequest(request)).execute()) {
             ResponseBody body = response.body();
             if (response.isSuccessful()) {
-                byte[] data = body.bytes();
-                return new SGOReport(data);
+                return new SGOReport(body.bytes());
             } else {
                 throw new SGORequestException("HTTP " + response.code() + ": " + body.string());
             }
@@ -154,11 +156,19 @@ public class SGOClient implements AutoCloseable {
     }
 
     @Override
-    public void close() {
+    public synchronized void close() {
         refresher.stopRefreshLoop();
         execute(new SGOLogoutRequest(currentSession.getSgoLogin().getAt(), currentSession.getLoginData().getVer()));
         currentSession = null;
+        cookieStore.clearCookie();
 
-        log.info("Session logouted");
+        try (ExecutorService service = HTTP_CLIENT.dispatcher().executorService()) {
+            service.shutdownNow();
+            HTTP_CLIENT.connectionPool().evictAll();
+        } catch (Exception e) {
+            log.error("SGOClient shutdown error: ", e);
+        }
+
+        log.debug("Client closed");
     }
 }

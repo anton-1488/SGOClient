@@ -1,4 +1,4 @@
-package org.plovdev.sgoclient.core.exceptions;
+package org.plovdev.sgoclient.exceptions;
 
 public class SGOCleintException extends RuntimeException {
     public SGOCleintException() {

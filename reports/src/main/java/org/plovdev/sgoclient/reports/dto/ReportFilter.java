@@ -13,42 +13,44 @@ public class ReportFilter implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     private static final DateTimeFormatter REPORT_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-    private static final DateTimeFormatter READABLE_REPORT_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public static @NonNull ReportFilter userFilter(String userId, String userName) {
-        return new ReportFilter("SID", userId, userName);
+    public static @NonNull ReportFilter userFilter(String userId) {
+        return new ReportFilter("SID", userId);
     }
 
     @Contract("_ -> new")
     public static @NonNull ReportFilter markTypeFilter(@NonNull MarkType markType) {
-        return new ReportFilter("MerksType", markType.getType(), markType.getText());
+        return new ReportFilter("MerksType", markType.getType());
     }
 
-    public static @NonNull ReportFilter classFilter(String classId, String className) {
-        return new ReportFilter("PCLID", classId, className);
+    @Contract("_ -> new")
+    public static @NonNull ReportFilter classFilter(String classId) {
+        return new ReportFilter("PCLID", classId);
     }
 
-    public static @NonNull ReportFilter classIUPFilter(String classId, String className) {
-        return new ReportFilter("PCLID_IUP", classId + "_0", className);
+    @Contract("_ -> new")
+    public static @NonNull ReportFilter classIUPFilter(String classId) {
+        return new ReportFilter("PCLID_IUP", classId + "_0");
     }
 
-    public static @NonNull ReportFilter termFilter(String termId, String termName) {
-        return new ReportFilter("TERMID", termId, termName);
+    @Contract("_ -> new")
+    public static @NonNull ReportFilter termFilter(String termId) {
+        return new ReportFilter("TERMID", termId);
     }
 
-    public static @NonNull ReportFilter viewTypeFilter(ViewType viewType) {
-        return new ReportFilter("ViewType", String.valueOf(viewType.getType()), viewType.getText());
+    @Contract("_ -> new")
+    public static @NonNull ReportFilter viewTypeFilter(@NonNull ViewType viewType) {
+        return new ReportFilter("ViewType", String.valueOf(viewType.getType()));
     }
 
-    @Contract(value = "_, _ -> new", pure = true)
-    public static @NonNull ReportFilter subjectFilter(int subjectId, String subjectName) {
-        return new ReportFilter("SGID", String.valueOf(subjectId), subjectName);
+    @Contract("_ -> new")
+    public static @NonNull ReportFilter subjectFilter(int subjectId) {
+        return new ReportFilter("SGID", String.valueOf(subjectId));
     }
 
     public static @NonNull ReportFilter periodFilter(@NonNull LocalDateTime start, @NonNull LocalDateTime end) {
         String periodValue = String.format("%s - %s", start.format(REPORT_DATE_TIME_FORMATTER), end.format(REPORT_DATE_TIME_FORMATTER));
-        String periodText = String.format("%s - %s", start.format(READABLE_REPORT_DATE_TIME_FORMATTER), end.format(READABLE_REPORT_DATE_TIME_FORMATTER));
-        return new ReportFilter("period", periodValue, periodText);
+        return new ReportFilter("period", periodValue);
     }
 
     @SerializedName("filterId")
@@ -57,13 +59,9 @@ public class ReportFilter implements Serializable {
     @SerializedName("filterValue")
     private String filterValue;
 
-    @SerializedName("filterText")
-    private String filterText;
-
-    public ReportFilter(String filterId, String filterValue, String filterText) {
+    public ReportFilter(String filterId, String filterValue) {
         this.filterId = filterId;
         this.filterValue = filterValue;
-        this.filterText = filterText;
     }
 
     public ReportFilter() {
@@ -85,51 +83,31 @@ public class ReportFilter implements Serializable {
         this.filterValue = filterValue;
     }
 
-    public String getFilterText() {
-        return filterText;
-    }
-
-    public void setFilterText(String filterText) {
-        this.filterText = filterText;
-    }
-
     public enum MarkType {
-        TOTAL_MARKS("T", "Итоговые отметки"), EVENT_WORKS("S", "Тематические работы"), ALL("B", "Итоговые отметки и тематические работы");
+        TOTAL_MARKS("T"), EVENT_WORKS("S"), ALL("B");
 
         private final String type;
-        private final String text;
 
-        MarkType(String type, String text) {
+        MarkType(String type) {
             this.type = type;
-            this.text = text;
         }
 
         public String getType() {
             return type;
         }
-
-        public String getText() {
-            return text;
-        }
     }
 
     public enum ViewType {
-        CURRENT_MARKS_BY_TERM(1, "Текущие оценки за период"), YEAR_TOTAL(2, "Итоги учебного периода");
+        CURRENT_MARKS_BY_TERM(1), YEAR_TOTAL(2);
 
         private final int type;
-        private final String text;
 
-        ViewType(int type, String text) {
+        ViewType(int type) {
             this.type = type;
-            this.text = text;
         }
 
         public int getType() {
             return type;
-        }
-
-        public String getText() {
-            return text;
         }
     }
 
@@ -138,7 +116,6 @@ public class ReportFilter implements Serializable {
         return "ReportFilter{" +
                 "filterId='" + filterId + '\'' +
                 ", filterValue='" + filterValue + '\'' +
-                ", filterText='" + filterText + '\'' +
                 '}';
     }
 }

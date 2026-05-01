@@ -1,4 +1,4 @@
-package org.plovdev.sgoclient.core.exceptions;
+package org.plovdev.sgoclient.exceptions;
 
 public class SGORequestException extends SGOCleintException {
     public SGORequestException() {

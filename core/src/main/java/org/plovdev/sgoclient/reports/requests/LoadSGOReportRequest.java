@@ -1,4 +1,4 @@
-package org.plovdev.sgoclient.core.reports.requests;
+package org.plovdev.sgoclient.reports.requests;
 
 import com.google.gson.reflect.TypeToken;
 import org.plovdev.sgoclient.core.http.HttpMethod;

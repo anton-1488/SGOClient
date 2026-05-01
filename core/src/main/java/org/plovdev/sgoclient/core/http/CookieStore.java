@@ -22,4 +22,8 @@ public final class CookieStore implements CookieJar {
     public @NonNull List<Cookie> loadForRequest(@NonNull HttpUrl url) {
         return cookieStore.getOrDefault(url.host(), new ArrayList<>());
     }
+
+    public void clearCookie() {
+        cookieStore.clear();
+    }
 }

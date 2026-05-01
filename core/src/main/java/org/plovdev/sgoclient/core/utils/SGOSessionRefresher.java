@@ -31,7 +31,7 @@ public class SGOSessionRefresher {
         this.client = client;
     }
 
-    public void startRefreshLoop(AuthKeys authKeys, SGOSchool school, ClientRole role) {
+    public synchronized void startRefreshLoop(AuthKeys authKeys, SGOSchool school, ClientRole role) {
         if (running) {
             return;
         }
@@ -52,8 +52,8 @@ public class SGOSessionRefresher {
         running = true;
     }
 
-    public void stopRefreshLoop() {
-        if (!running) {
+    public synchronized void stopRefreshLoop() {
+        if (running) {
             scheduler.close();
             running = false;
         }

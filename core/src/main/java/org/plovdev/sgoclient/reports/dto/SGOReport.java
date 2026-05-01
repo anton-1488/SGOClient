@@ -1,8 +1,8 @@
-package org.plovdev.sgoclient.core.reports.dto;
+package org.plovdev.sgoclient.reports.dto;
 
 import com.google.gson.annotations.SerializedName;
-import org.plovdev.sgoclient.core.reports.SGOReportOutputType;
-import org.plovdev.sgoclient.core.reports.SGOReportType;
+import org.plovdev.sgoclient.reports.SGOReportOutputType;
+import org.plovdev.sgoclient.reports.SGOReportType;
 
 import java.io.Serial;
 import java.io.Serializable;

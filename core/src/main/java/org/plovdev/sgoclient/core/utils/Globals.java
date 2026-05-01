@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.Strictness;
 import okhttp3.OkHttpClient;
-import org.plovdev.sgoclient.core.http.CookieStore;
 import org.plovdev.sgoclient.core.utils.json.DateAdapter;
 import org.plovdev.sgoclient.core.utils.json.DateTimeAdapter;
 import org.plovdev.sgoclient.core.utils.json.TimeAdapter;
@@ -24,13 +23,11 @@ public final class Globals {
             .registerTypeAdapter(LocalDateTime.class, new DateTimeAdapter())
             .setStrictness(Strictness.LENIENT)
             .create();
-    public static final OkHttpClient HTTP_CLIENT = new OkHttpClient.Builder()
+    public static final OkHttpClient.Builder HTTP_CLIENT_BUILDER = new OkHttpClient.Builder()
             .connectTimeout(Duration.ofSeconds(60))
             .readTimeout(60, TimeUnit.SECONDS)
             .writeTimeout(60, TimeUnit.SECONDS)
-            .followRedirects(true)
-            .cookieJar(new CookieStore())
-            .build();
+            .followRedirects(true);
 
     public static int getCurrentTimeZoneOffset() {
         return OffsetDateTime.now().getOffset().getTotalSeconds() / 3600;
@@ -44,11 +41,11 @@ public final class Globals {
         runtime.addShutdownHook(new Thread(() -> HOOKS.forEach(Runnable::run)));
     }
 
-    public static void addShootdownHook(Runnable r) {
+    public static void addShutdownHook(Runnable r) {
         HOOKS.add(r);
     }
 
-    public static void removeShootdownHook(Runnable r) {
+    public static void removeShutdownHook(Runnable r) {
         HOOKS.remove(r);
     }
 }

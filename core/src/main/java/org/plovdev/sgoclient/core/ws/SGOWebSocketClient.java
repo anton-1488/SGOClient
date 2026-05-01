@@ -61,6 +61,6 @@ public class SGOWebSocketClient implements AutoCloseable {
 
     @Override
     public void close() {
-        webSocket.close(1000, "Fuck you:}");
+        webSocket.close(1000, "Normal closure");
     }
 }

@@ -7,8 +7,8 @@ import org.jspecify.annotations.NonNull;
 import org.plovdev.sgoclient.core.http.HttpMethod;
 import org.plovdev.sgoclient.core.http.SGOHttpPath;
 import org.plovdev.sgoclient.core.http.requests.SGORequest;
-import org.plovdev.sgoclient.core.reports.SGOReportOutputType;
-import org.plovdev.sgoclient.core.reports.SGOReportType;
+import org.plovdev.sgoclient.reports.SGOReportOutputType;
+import org.plovdev.sgoclient.reports.SGOReportType;
 import org.plovdev.sgoclient.reports.dto.ReportFilter;
 import org.plovdev.sgoclient.reports.dto.SGOReportQueue;
 
@@ -109,7 +109,6 @@ public class CreateSGOReportQueue extends SGORequest<SGOReportQueue> {
                 JsonObject filterObj = new JsonObject();
                 filterObj.addProperty("filterId", filter.getFilterId());
                 filterObj.addProperty("filterValue", filter.getFilterValue());
-                filterObj.addProperty("filterText", filter.getFilterText());
                 selectedData.add(filterObj);
             }
         }

@@ -1,7 +1,7 @@
 package org.plovdev.sgoclient.reports.dto.requests;
 
-import org.plovdev.sgoclient.core.reports.SGOReportOutputType;
-import org.plovdev.sgoclient.core.reports.SGOReportType;
+import org.plovdev.sgoclient.reports.SGOReportOutputType;
+import org.plovdev.sgoclient.reports.SGOReportType;
 import org.plovdev.sgoclient.reports.dto.ReportFilter;
 
 import java.util.List;
