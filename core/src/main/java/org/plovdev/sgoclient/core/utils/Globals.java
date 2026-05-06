@@ -3,6 +3,7 @@ package org.plovdev.sgoclient.core.utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.Strictness;
+import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import org.plovdev.sgoclient.core.utils.json.DateAdapter;
 import org.plovdev.sgoclient.core.utils.json.DateTimeAdapter;
@@ -17,6 +18,14 @@ import java.util.concurrent.TimeUnit;
 
 public final class Globals {
     public static final ExecutorService VIRTUAL_EXECUTOR = Executors.newVirtualThreadPerTaskExecutor();
+    private static final List<Runnable> HOOKS = new CopyOnWriteArrayList<>();
+
+    static {
+        Runtime runtime = Runtime.getRuntime();
+        runtime.addShutdownHook(new Thread(VIRTUAL_EXECUTOR::close));
+        runtime.addShutdownHook(new Thread(() -> HOOKS.forEach(Runnable::run)));
+    }
+
     public static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(LocalDate.class, new DateAdapter())
             .registerTypeAdapter(LocalTime.class, new TimeAdapter())
@@ -27,18 +36,11 @@ public final class Globals {
             .connectTimeout(Duration.ofSeconds(60))
             .readTimeout(60, TimeUnit.SECONDS)
             .writeTimeout(60, TimeUnit.SECONDS)
+            .connectionPool(new ConnectionPool(10, 5, TimeUnit.MINUTES))
             .followRedirects(true);
 
     public static int getCurrentTimeZoneOffset() {
         return OffsetDateTime.now().getOffset().getTotalSeconds() / 3600;
-    }
-
-    private static final List<Runnable> HOOKS = new CopyOnWriteArrayList<>();
-
-    private Globals() {
-        Runtime runtime = Runtime.getRuntime();
-        runtime.addShutdownHook(new Thread(VIRTUAL_EXECUTOR::close));
-        runtime.addShutdownHook(new Thread(() -> HOOKS.forEach(Runnable::run)));
     }
 
     public static void addShutdownHook(Runnable r) {
